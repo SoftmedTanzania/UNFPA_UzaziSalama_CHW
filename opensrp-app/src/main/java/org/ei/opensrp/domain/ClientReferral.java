@@ -3,159 +3,19 @@ package org.ei.opensrp.domain;
 import java.io.Serializable;
 
 /**
- * Created by kency on 11/20/17.
+ * Created by Coze on 05/19/18.
  */
 
 public class ClientReferral implements Serializable {
 
-    private String id, relationalid, details, referral_feedback, other_notes,
-            services_given_to_patient, referral_uuid, first_name, middle_name, surname, facility_id,
-            referral_reason, is_valid, service_provider_mobile_number, ward, village, Kijitongoji,
-            village_leader, service_provider_group, service_provider_uiid, phone_number,
-            referral_service_id, gender, community_based_hiv_service, ctc_number, referral_status;
-    private long date_of_birth, referral_date;
-    private boolean test_results;
-    private String indicator_ids;
+    private String  referral_feedback, other_notes, referral_uuid, first_name, middle_name, surname, facility_id,
+            referral_reason, service_provider_mobile_number, ward, village, map_cue, service_provider_uiid, phone_number,spouse_name;
+    private long date_of_birth, referral_date,lmnp_date,edd;
+    private int id,relationalid,gravida,para,referral_status,level_of_education,pmtct_status;
+    private boolean height_below_average,is_valid;
 
     public ClientReferral() {
 
-    }
-
-    public ClientReferral(String id,
-                          String relationalId,
-                          String first_name,
-                          String middle_name,
-                          String surname,
-                          String community_based_hiv_service,
-                          String ctc_number,
-                          Long referral_date,
-                          String facility_id,
-                          String ReferralReason,
-                          String referral_service_id,
-                          String referral_status,
-                          String is_valid,
-                          String details
-    ) {
-        this.details = details;
-        this.id = id;
-        this.referral_status = referral_status;
-        this.community_based_hiv_service = community_based_hiv_service;
-        this.ctc_number = ctc_number;
-        this.relationalid = relationalId;
-        this.first_name = first_name;
-        this.middle_name = middle_name;
-        this.surname = surname;
-        this.referral_date = referral_date;
-        this.facility_id = facility_id;
-        this.referral_reason = ReferralReason;
-        this.referral_service_id = referral_service_id;
-        this.is_valid = is_valid;
-    }
-
-    public String getOther_notes() {
-        return other_notes;
-    }
-
-    public void setOther_notes(String other_notes) {
-        this.other_notes = other_notes;
-    }
-
-    public String getServices_given_to_patient() {
-        return services_given_to_patient;
-    }
-
-    public void setServices_given_to_patient(String services_given_to_patient) {
-        this.services_given_to_patient = services_given_to_patient;
-    }
-
-    public boolean isTest_results() {
-        return test_results;
-    }
-
-    public void setTest_results(boolean test_results) {
-        this.test_results = test_results;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getRelationalid() {
-        return relationalid;
-    }
-
-    public void setRelationalid(String relationalid) {
-        this.relationalid = relationalid;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-
-    public String getReferral_uuid() {
-        return referral_uuid;
-    }
-
-    public void setReferral_uuid(String referral_uuid) {
-        this.referral_uuid = referral_uuid;
-    }
-
-    public String getIndicator_ids() {
-        return indicator_ids;
-    }
-
-    public void setIndicator_ids(String indicator_ids) {
-        this.indicator_ids = indicator_ids;
-    }
-
-    public String getReferral_status() {
-        return referral_status;
-    }
-
-    public void setReferral_status(String referral_status) {
-        this.referral_status = referral_status;
-    }
-
-    public String getMiddle_name() {
-        return middle_name;
-    }
-
-    public void setMiddle_name(String middle_name) {
-        this.middle_name = middle_name;
-    }
-
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public long getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(long date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
-
-    public String getCtc_number() {
-        return ctc_number;
-    }
-
-    public void setCtc_number(String ctc_number) {
-        this.ctc_number = ctc_number;
     }
 
     public String getReferral_feedback() {
@@ -166,12 +26,22 @@ public class ClientReferral implements Serializable {
         this.referral_feedback = referral_feedback;
     }
 
-    public String getService_provider_mobile_number() {
-        return service_provider_mobile_number;
+    public String getOther_notes() {
+        return other_notes;
     }
 
-    public void setService_provider_mobile_number(String service_provider_mobile_number) {
-        this.service_provider_mobile_number = service_provider_mobile_number;
+    public void setOther_notes(String other_notes) {
+        this.other_notes = other_notes;
+    }
+
+
+
+    public String getReferral_uuid() {
+        return referral_uuid;
+    }
+
+    public void setReferral_uuid(String referral_uuid) {
+        this.referral_uuid = referral_uuid;
     }
 
     public String getFirst_name() {
@@ -182,28 +52,20 @@ public class ClientReferral implements Serializable {
         this.first_name = first_name;
     }
 
-    public String getIs_valid() {
-        return is_valid;
+    public String getMiddle_name() {
+        return middle_name;
     }
 
-    public void setIs_valid(String is_valid) {
-        this.is_valid = is_valid;
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
     }
 
-    public String getReferral_reason() {
-        return referral_reason;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setReferral_reason(String referral_reason) {
-        this.referral_reason = referral_reason;
-    }
-
-    public long getReferral_date() {
-        return referral_date;
-    }
-
-    public void setReferral_date(long referral_date) {
-        this.referral_date = referral_date;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getFacility_id() {
@@ -214,12 +76,20 @@ public class ClientReferral implements Serializable {
         this.facility_id = facility_id;
     }
 
-    public String getProviderMobileNumber() {
+    public String getReferral_reason() {
+        return referral_reason;
+    }
+
+    public void setReferral_reason(String referral_reason) {
+        this.referral_reason = referral_reason;
+    }
+
+    public String getService_provider_mobile_number() {
         return service_provider_mobile_number;
     }
 
-    public void setProviderMobileNumber(String providerMobileNumber) {
-        this.service_provider_mobile_number = providerMobileNumber;
+    public void setService_provider_mobile_number(String service_provider_mobile_number) {
+        this.service_provider_mobile_number = service_provider_mobile_number;
     }
 
     public String getWard() {
@@ -238,28 +108,12 @@ public class ClientReferral implements Serializable {
         this.village = village;
     }
 
-    public String getKijitongoji() {
-        return Kijitongoji;
+    public String getMap_cue() {
+        return map_cue;
     }
 
-    public void setKijitongoji(String kijitongoji) {
-        Kijitongoji = kijitongoji;
-    }
-
-    public String getVillage_leader() {
-        return village_leader;
-    }
-
-    public void setVillage_leader(String village_leader) {
-        this.village_leader = village_leader;
-    }
-
-    public String getService_provider_group() {
-        return service_provider_group;
-    }
-
-    public void setService_provider_group(String service_provider_group) {
-        this.service_provider_group = service_provider_group;
+    public void setMap_cue(String map_cue) {
+        this.map_cue = map_cue;
     }
 
     public String getService_provider_uiid() {
@@ -278,27 +132,115 @@ public class ClientReferral implements Serializable {
         this.phone_number = phone_number;
     }
 
-    public String getReferral_service_id() {
-        return referral_service_id;
+    public int getPmtct_status() {
+        return pmtct_status;
     }
 
-    public void setReferral_service_id(String referral_service_id) {
-        this.referral_service_id = referral_service_id;
+    public void setPmtct_status(int pmtct_status) {
+        this.pmtct_status = pmtct_status;
     }
 
-    public String getGender() {
-        return gender;
+    public String getSpouse_name() {
+        return spouse_name;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setSpouse_name(String spouse_name) {
+        this.spouse_name = spouse_name;
     }
 
-    public String getCommunity_based_hiv_service() {
-        return community_based_hiv_service;
+    public long getDate_of_birth() {
+        return date_of_birth;
     }
 
-    public void setCommunity_based_hiv_service(String community_based_hiv_service) {
-        this.community_based_hiv_service = community_based_hiv_service;
+    public void setDate_of_birth(long date_of_birth) {
+        this.date_of_birth = date_of_birth;
+    }
+
+    public long getReferral_date() {
+        return referral_date;
+    }
+
+    public void setReferral_date(long referral_date) {
+        this.referral_date = referral_date;
+    }
+
+    public long getLmnp_date() {
+        return lmnp_date;
+    }
+
+    public void setLmnp_date(long lmnp_date) {
+        this.lmnp_date = lmnp_date;
+    }
+
+    public long getEdd() {
+        return edd;
+    }
+
+    public void setEdd(long edd) {
+        this.edd = edd;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getRelationalid() {
+        return relationalid;
+    }
+
+    public void setRelationalid(int relationalid) {
+        this.relationalid = relationalid;
+    }
+
+    public int getGravida() {
+        return gravida;
+    }
+
+    public void setGravida(int gravida) {
+        this.gravida = gravida;
+    }
+
+    public int getPara() {
+        return para;
+    }
+
+    public void setPara(int para) {
+        this.para = para;
+    }
+
+    public int getReferral_status() {
+        return referral_status;
+    }
+
+    public void setReferral_status(int referral_status) {
+        this.referral_status = referral_status;
+    }
+
+    public int getLevel_of_education() {
+        return level_of_education;
+    }
+
+    public void setLevel_of_education(int level_of_education) {
+        this.level_of_education = level_of_education;
+    }
+
+    public boolean isHeight_below_average() {
+        return height_below_average;
+    }
+
+    public void setHeight_below_average(boolean height_below_average) {
+        this.height_below_average = height_below_average;
+    }
+
+    public boolean is_valid() {
+        return is_valid;
+    }
+
+    public void setIs_valid(boolean is_valid) {
+        this.is_valid = is_valid;
     }
 }

@@ -20,7 +20,6 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -70,7 +69,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     private static final String TAG = ClientsFormRegisterActivity.class.getSimpleName();
     public static AutoCompleteTextView facilitytextView;
     public static EditText editTextfName,editTextmName,editTextlName,editTextVillageLeader, editTextAge, editTextCTCNumber,
-            editTextDiscountId,editTextKijiji,editTextReferralReason,editTextGravida ,editTextPara,editTextSpouseName,gravidaText ,paraText,spouseNameText;
+            editTextDiscountId, mapcueText,editTextReferralReason,editTextGravida ,editTextPara,editTextSpouseName,gravidaText ,paraText,spouseNameText;
     public static Button saveButton,cancelButton;
     public static MaterialSpinner spinnerHeight, pmtctStatusSpinner,levelOfEducationSpinner;
     private ArrayAdapter<String> heightAdapter,pmctcAdapter,levelOfEducationAdapter;
@@ -137,7 +136,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
                 if (isFormSubmissionOk()) {
                     //setting default values
                     clientReferral = getClientReferral();
-                    clientReferral.setReferral_status("0");
+                    clientReferral.setReferral_status(0);
 
                     // convert to json
                     String gsonReferral = gson.toJson(clientReferral);
@@ -174,7 +173,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     public void saveFormSubmission(String formSubmission, final String id, String formName, JSONObject fieldOverrides) {
         // save the form
             final ClientReferral clientReferral = gson.fromJson(formSubmission, ClientReferral.class);
-            clientReferral.setId(id);
+            clientReferral.setId(Integer.valueOf(id));
             ContentValues values = new ClientReferralRepository().createValuesFor(clientReferral);
             Log.d(TAG, "values = " + gson.toJson(values));
 
@@ -236,12 +235,12 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         editTextSpouseName = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.spouse_name);
 
 
-        editTextKijiji = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.village);
+        mapcueText = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.village);
         gravidaText = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.gravida);
         paraText= (EditText)   findViewById(com.softmed.uzazi_salama.R.id.para);
         spouseNameText = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.spouse_name);
 
-        editTextKijiji = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.village);
+        mapcueText = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.village);
         editTextReferralReason = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.reason_for_referral);
         saveButton = (Button)   findViewById(com.softmed.uzazi_salama.R.id.registered_client_save_button);
         cancelButton = (Button)   findViewById(com.softmed.uzazi_salama.R.id.registered_client_cancel_button);
@@ -290,16 +289,13 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     }
     
     private void setDataLists(){
-        commonRepository = context().commonrepository("referral_service");
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service");
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-        this.referralServiceList = Utils.convertToServiceObjectList(commonPersonObjectList);
-        int size = referralServiceList.size();
-
-//        for(int i =0; size > i; i++  ){
-//            heightList.add(referralServiceList.get(i).getName());
-//        }
+//        commonRepository = context().commonrepository("referral_service");
+//        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service");
+//        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
+//        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
+//        this.referralServiceList = Utils.convertToServiceObjectList(commonPersonObjectList);
+//        int size = referralServiceList.size();
+//
 
         heightList.clear();
         heightList.add("Height < 150 cm");
@@ -323,15 +319,12 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
 
     private void setFacilistList(){
         commonRepository1 = context().commonrepository("facility");
-        //todo martha edit the query
         cursor = commonRepository.RawCustomQueryForAdapter("select * FROM facility");
-
         List<CommonPersonObject> commonPersonObjectList2 = commonRepository.readAllcommonForField(cursor, "facility");
         Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList2));
 
         this.facilitiesList = Utils.convertToFacilityObjectList(commonPersonObjectList2);
         int size2 = facilitiesList.size();
-
         for(int i =0; size2 > i; i++  ){
 
             facilityList.add(facilitiesList.get(i).getName());
@@ -435,7 +428,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
             makeToast();
             return false;
 
-        } else if (TextUtils.isEmpty(editTextKijiji.getText())) {
+        } else if (TextUtils.isEmpty(mapcueText.getText())) {
             message = getResources().getString(com.softmed.uzazi_salama.R.string.missing_physical_address);
             makeToast();
             return false;
@@ -452,38 +445,29 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         ClientReferral referral = new ClientReferral();
         referral.setReferral_date(today.getTimeInMillis());
         referral.setDate_of_birth(dob);
-        referral.setCommunity_based_hiv_service(editTextDiscountId.getText().toString());
         referral.setFirst_name(editTextfName.getText().toString());
         referral.setMiddle_name(editTextmName.getText().toString());
         referral.setSurname(editTextlName.getText().toString());
-        referral.setVillage(editTextKijiji.getText().toString());
-        referral.setIs_valid("true");
+        referral.setMap_cue(mapcueText.getText().toString());
+        referral.setPhone_number(textPhone.getText().toString());
+        referral.setVillage(wardId);
+        referral.setPmtct_status(pmtctStatusSpinner.getSelectedItemPosition());
+        referral.setHeight_below_average(spinnerHeight.getSelectedItemPosition()==0);
+        referral.setLevel_of_education(levelOfEducationSpinner.getSelectedItemPosition());
+        referral.setSpouse_name(spouseNameText.getText().toString());
+        referral.setGravida(Integer.valueOf(gravidaText.getText().toString()));
+        referral.setPara(Integer.valueOf(paraText.getText().toString()));
+        referral.setLmnp_date(lnmp);
+        referral.setEdd(edd);
+        referral.setIs_valid(true);
+        referral.setReferral_status(0);
         referral.setPhone_number(textPhone.getText().toString());
         referral.setFacility_id(getFacilityId(facilitytextView.getText().toString()));
-        if(pmtctStatusSpinner.getSelectedItem().toString().equalsIgnoreCase("female") || pmtctStatusSpinner.getSelectedItem().toString().contains("ke"))
-            referral.setGender("Female");
-        else
-            referral.setGender("Male");
-        referral.setVillage_leader(editTextVillageLeader.getText().toString());
         referral.setReferral_reason(editTextReferralReason.getText().toString());
-        referral.setReferral_service_id(getReferralServiceId(spinnerHeight.getSelectedItem().toString()));
         referral.setWard(wardId);
-        referral.setCtc_number(editTextCTCNumber.getText().toString());
-        referral.setTest_results(false);
-        referral.setServices_given_to_patient("");
-        referral.setOther_notes("");
         referral.setService_provider_uiid(((BoreshaAfyaApplication)getApplication()).getCurrentUserID());
-        referral.setService_provider_group(((BoreshaAfyaApplication)getApplication()).getTeam_uuid());
-        for(int i=0; i<parentLayout.getChildCount(); i++) {
-            CheckBox nextChild = (CheckBox) parentLayout.getChildAt(i);
-            if (nextChild.isChecked()) {
-                CheckBox check = nextChild;
-                if (check.isChecked()) {
-                    AllCheckbox.add(getIndicatorId(check.getText().toString()));
-                }
-            }
-        }
-        referral.setIndicator_ids(new Gson().toJson(AllCheckbox));
+
+
 
 
         return referral;

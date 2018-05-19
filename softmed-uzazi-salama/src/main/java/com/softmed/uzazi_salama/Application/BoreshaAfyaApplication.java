@@ -214,7 +214,7 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
         Log.d(TAG,"message = "+value);
     }
 
-    public void updateReferralStatus(String id,String feedback,String serviceGiven, boolean testResult, String referralStatus){
+    public void updateReferralStatus(String id,String feedback,String othernotes, String referralStatus){
 
         commonRepository = context.commonrepository("client_referral");
 
@@ -226,10 +226,9 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
             ClientReferralPersonObject clientReferralPersonObject = Utils.convertToClientReferralPersonObjectList(commonPersonObjectList).get(0);
 
             ClientReferral clientReferral = new Gson().fromJson(clientReferralPersonObject.getDetails(), ClientReferral.class);
-            clientReferral.setReferral_status(referralStatus);
-            clientReferral.setOther_notes(feedback);
-            clientReferral.setServices_given_to_patient(serviceGiven);
-            clientReferral.setTest_results(testResult);
+            clientReferral.setReferral_status(Integer.valueOf(referralStatus));
+            clientReferral.setReferral_feedback(feedback);
+            clientReferral.setOther_notes(othernotes);
 
             ContentValues values = new ClientReferralRepository().createValuesUpdateValues(clientReferral);
             commonRepository.customUpdate(values, id);

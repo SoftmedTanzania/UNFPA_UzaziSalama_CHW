@@ -163,6 +163,9 @@ public class Utils {
         String details = new Gson().toJson(commonPersonObject);
         Log.d(TAG, "details string = " + details);
         try {
+
+
+
             return new ClientReferralPersonObject(
                     commonPersonObject.getId(),
                     commonPersonObject.getRelationalid(),

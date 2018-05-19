@@ -47,7 +47,7 @@ public class MyGcmListenerService extends GcmListenerService {
         String serviceGivenToPatient= data.getString("serviceGivenToPatient");
         boolean testResult= Boolean.parseBoolean(data.getString("testResults"));
         String referralStatus= data.getString("referralStatus");
-        ((BoreshaAfyaApplication)getApplication()).updateReferralStatus(client_id,feedback,serviceGivenToPatient,testResult,referralStatus);
+        ((BoreshaAfyaApplication)getApplication()).updateReferralStatus(client_id,feedback,serviceGivenToPatient,referralStatus);
 
 
 

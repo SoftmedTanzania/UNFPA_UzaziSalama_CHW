@@ -151,6 +151,7 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
     }
 
 
+    //TODO fix the details dialogue
     public void showPreRegistrationDetailsDialog(ClientReferralPersonObject clientReferralPersonObject) {
 
         final View dialogView = getLayoutInflater().inflate(R.layout.fragment_chwregistration_details, null);
@@ -184,15 +185,12 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
 
         TextView textName = (TextView) dialogView.findViewById(R.id.client_name);
         TextView textAge = (TextView) dialogView.findViewById(R.id.agevalue);
-        TextView cbhs = (TextView) dialogView.findViewById(R.id.cbhs_number_value);
         TextView referral_service = (TextView) dialogView.findViewById(R.id.viewService);
         TextView facility = (TextView) dialogView.findViewById(R.id.viewFacility);
         TextView ctc_number = (TextView) dialogView.findViewById(R.id.ctc_number);
         TextView referral_reason = (TextView) dialogView.findViewById(R.id.reason_for_referral);
-        TextView gender = (TextView) dialogView.findViewById(R.id.gendervalue);
         TextView phoneNumber = (TextView) dialogView.findViewById(R.id.viewPhone);
         TextView physicalAddress = (TextView) dialogView.findViewById(R.id.editTextKijiji);
-        TextView villageleader = (TextView) dialogView.findViewById(R.id.viewVillageLeader);
 
         if(clientReferralPersonObject.getReferral_status().equals("1")) {
             dialogView.findViewById(R.id.referral_feedback_title).setVisibility(VISIBLE);
@@ -203,9 +201,7 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
 
 
         textName.setText(clientReferralPersonObject.getFirst_name() +" "+clientReferralPersonObject.getMiddle_name()+" "+clientReferralPersonObject.getSurname());
-//
         textAge.setText(ageS + " years");
-        cbhs.setText(clientReferral.getCommunity_based_hiv_service());
         referral_service.setText(getReferralServiceName(clientReferralPersonObject.getReferral_service_id()));
         facility.setText(getFacilityName(clientReferralPersonObject.getFacility_id()));
         if(!clientReferralPersonObject.getCtc_number().isEmpty())
@@ -214,14 +210,8 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
             ctc_number.setText("-");
         referral_reason.setText(clientReferralPersonObject.getReferral_reason());
         phoneNumber.setText(clientReferral.getPhone_number());
-        villageleader.setText(clientReferral.getVillage_leader());
         physicalAddress.setText(clientReferral.getVillage());
-        if((clientReferral.getGender()).equals("1")){
-            gender.setText(getResources().getString(R.string.female));
-        }
-        else     {
-            gender.setText(getResources().getString(R.string.male));
-        }
+
         setIndicators(dialogView,gsonClient);
     }
 
@@ -277,7 +267,7 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
                     ClientReferral clientReferral = new Gson().fromJson(clientReferralPersonObject.getDetails(), ClientReferral.class);
 
                     if (spinnerReason.getSelectedItem().toString().equals("Amehama") || spinnerReason.getSelectedItem().toString().equals("Amefariki"))
-                        clientReferral.setIs_valid("false");
+                        clientReferral.setIs_valid(false);
 
                     clientReferral.setReferral_feedback(spinnerReason.getSelectedItem().toString());
                     Toast.makeText(ChwSmartRegisterActivity.this, "Asante kwa kumtembelea tena " + clientReferralPersonObject.getFirst_name() + " " + clientReferralPersonObject.getMiddle_name() + " " + clientReferralPersonObject.getSurname(), Toast.LENGTH_SHORT).show();

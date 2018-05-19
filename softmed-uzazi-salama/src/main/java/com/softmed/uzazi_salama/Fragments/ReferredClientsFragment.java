@@ -368,8 +368,6 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
                                 ClientReferrals.add(client);
                         } else if (!ctc_number.isEmpty()) {
                             client = getclientReferral(commonPersonObject);
-                            if ((client.getCtc_number().toLowerCase()).contains(ctc_number.toLowerCase()))
-                                ClientReferrals.add(client);
                         } else if (!sdate.isEmpty()) {
                             client = getclientReferral(commonPersonObject);
                             if (startDate <= client.getReferral_date())
@@ -426,16 +424,12 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
 
             client.setFirst_name(fname);
             client.setId(id);
-            client.setCtc_number(ctc_number);
             client.setRelationalid(relationid);
             client.setMiddle_name(mname);
             client.setSurname(surname);
-            client.setCommunity_based_hiv_service(community_based_hiv_service);
             client.setReferral_date(referral_date);
             client.setFacility_id(facility_id);
             client.setReferral_reason(referral_reason);
-            client.setReferral_service_id(referral_service_id);
-            client.setDetails(details);
 
             Log.d(TAG,"client gotten = "+new Gson().toJson(client));
             return  client;
