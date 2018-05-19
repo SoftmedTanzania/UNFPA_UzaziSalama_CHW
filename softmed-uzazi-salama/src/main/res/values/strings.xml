@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Uzazi Salama</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
+        send downstream messages to this app.</string>
+    <string name="registering_message">Generating InstanceID token...</string>
+    <string name="unregistered_message">Instace token unregistered</string>
+    <string name="registered_message">Instace token registered</string>
+    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
+        sending the fetched token to the server or subscribing to the PubSub topic. Please try
+        running the sample again.</string>
+    <string name="app_name_htmr">Uzazi Salama</string>
+    <string name="page_title">New Client Registration Form</string>
+    <string name="title_cbhs_number">CBHS #</string>
+    <string name="referral_information">Referral Information</string>
+    <string name="visit_facility">Visit Facility</string>
+    <string name="other_info">Other Information</string>
+    <string name="danger_signs">Danger Signs</string>
+    <string name="button_refer_client">Refer Client</string>
+    <string name="title_login">Login</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="powered_bt">Powered by OpenSRP</string>
+    <string name="page_title_htmr">htmr</string>
+    <string name="page_title_referral">Referral \nApplication</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">Login</string>
+    <string name="process_logging_in">Logging in...</string>
+    <string name="title_login_description">Enter username and password</string>
+    <string name="button_details">Details</string>
+    <string name="button_follow_up">Follow up</string>
+    <string name="title_register_client">New Client Registration Form</string>
+    <string name="client_sex">Sex</string>
+    <string name="client_height">Height</string>
+    <string name="client_level_of_education">Level Of Education</string>
+    <string name="client_pmtct_status">PMTCT Status</string>
+    <string name="client_phone">Phone</string>
+    <string name="client_age">Age</string>
+    <string name="client_address">Address</string>
+    <string name="client_veo">VEO</string>
+    <string name="referral_reason">Referral Reason</string>
+    <string name="referral_type">Referral Type</string>
+    <string name="referral_facility">Referral Facility</string>
+    <string name="title_ctc_number">CTC Number</string>
+    <string name="forminputerror">Please check the form for any error/missing input marked in Red box</string>
+    <string name="button_ok">OK</string>
+    <string name="title_visiting">Visiting</string>
+    <string name="referral_feedback">Referral Feedback</string>
+    <string name="followup_reasons">Follow-Up Reasons</string>
+    <string name="health_facility">Health Facility</string>
+    <string name="button_save">Save</string>
+    <string name="button_delete">Delete</string>
+    <string name="hint_met_client">have you found the client?</string>
+    <string name="hint_missing_reasons">Reasons for missing the appointment</string>
+    <string name="client_condition">Client\'s condition during visit</string>
+    <string name="client_middlename">Middle Name</string>
+    <string name="client_birthday">Date of Birth</string>
+    <string name="button_search">Search</string>
+    <string name="client_name">Name</string>
+    <string name="referral_date">Referral Date</string>
+    <string name="client_service">Service</string>
+    <string name="referral_status">Referral Status</string>
+    <string name="client_firstname">First Name</string>
+    <string name="client_surname">Surname</string>
+    <string name="from_date">From(Date)</string>
+    <string name="to_date">To(Date)</string>
+    <string name="client_helper">Helper</string>
+    <string name="visits_number">Visits</string>
+    <string name="referral_note">Note</string>
+    <string name="referral_services">Referral Services</string>
+    <string name="referral_details">Referral Details</string>
+    <string name="title_success">Success</string>
+    <string name="title_unsuccessful">Pending</string>
+    <string name="not_synced">Not Synced</string>
+    <string name="logged_user">Logged in as </string>
+    <string name="wrong_facility">Please fill in the correct referral facility</string>
+    <string name="missing_facility">Please fill in the referral facility</string>
+    <string name="missing_services">Please fill in the referral service</string>
+    <string name="wrong_mobile_number">Please fill in the correct mobile number if any</string>
+    <string name="unfilled_information">Please fill all required information</string>
+    <string name="missing_gender">Please select clients gender</string>
+    <string name="missing_physical_address">Please select Clients Physical address</string>
+    <string name="missing_missing_referral_reason">Please fill in the referral reason</string>
+    <string name="visit_facility_hint">Enter facility name</string> <string name="unauthorized">Please check the credentials</string>
+    <string name="unknown_response">login failed. Try later</string>
+    <string name="no_internet_connectivity">No internet connection. Please ensure data connectivity</string>
+    <string name="sent_referrals_label">Sent Referrals</string>
+    <string name="received_referrals_label">Received Referrals</string>
+    <string name="suceessful_label">Successful</string>
+    <string name="unsuccessful_label">Unsuccessful</string>
+    <string name="pending_label">Pending</string>
+
+
+    <string name="initial_information">Initial Information</string>
+
+</resources>

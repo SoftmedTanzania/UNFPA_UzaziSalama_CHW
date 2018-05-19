@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.softmed.uzazi_salama">
+
+    <compatible-screens>
+        <screen
+            android:screenDensity="ldpi"
+            android:screenSize="large" />
+        <screen
+            android:screenDensity="mdpi"
+            android:screenSize="large" />
+        <screen
+            android:screenDensity="hdpi"
+            android:screenSize="large" />
+        <screen
+            android:screenDensity="xhdpi"
+            android:screenSize="large" />
+        <screen
+            android:screenDensity="ldpi"
+            android:screenSize="xlarge" />
+        <screen
+            android:screenDensity="mdpi"
+            android:screenSize="xlarge" />
+        <screen
+            android:screenDensity="hdpi"
+            android:screenSize="xlarge" />
+        <screen
+            android:screenDensity="xhdpi"
+            android:screenSize="xlarge" />
+
+        <!-- Special case for Nexus 7 -->
+        <screen
+            android:screenDensity="213"
+            android:screenSize="large" />
+    </compatible-screens>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.something.app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.something.app.permission.C2D_MESSAGE"/>
+    <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+            <category android:name="com.something.app"/></intent-filter>
+    </receiver>
+    <application
+        android:name=".Application.BoreshaAfyaApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name">
+
+        <!-- android:icon="@drawable/opensrp_logo" > -->
+        <receiver android:name="com.google.android.gms.gcm.GcmReceiver"
+                 android:exported="true"
+                 android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.example.gcm"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".Service.MyGcmListenerService"
+                 android:exported="false">
+            <intent-filter><action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".Service.RegistrationIntentService"
+                android:exported="false">
+        </service>
+        <service android:enabled="true"
+            android:name=".Service.FacilityService"
+              >
+
+        </service>
+        <service android:enabled="true"
+            android:name=".Service.ReferralService"
+              >
+
+        </service>
+
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.MaterialDesign.TranslucentStatus">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NativeHomeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ChwSmartRegisterActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.MaterialDesign.NoActionBar"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ee4140a3b1692ec32e688110a280538c7b44e10e" />
+        <activity
+            android:name=".ClientsFormRegisterActivity"
+            android:theme="@style/AppTheme.MaterialDesign.NoActionBar" />
+
+        <activityf
+            android:name=".ClientsDetailsActivity"
+            android:label="@string/title_item_detail"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".RegisterClientActivity"></activity>
+    </application>
+
+</manifest>
