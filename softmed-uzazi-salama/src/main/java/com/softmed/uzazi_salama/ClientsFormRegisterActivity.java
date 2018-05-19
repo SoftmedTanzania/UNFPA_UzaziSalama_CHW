@@ -1,8 +1,11 @@
 package com.softmed.uzazi_salama;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -13,6 +16,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -67,7 +71,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     public static AutoCompleteTextView facilitytextView;
     public static EditText editTextfName,editTextmName,editTextlName,editTextVillageLeader, editTextAge, editTextCTCNumber,
             editTextDiscountId,editTextKijiji,editTextReferralReason,editTextGravida ,editTextPara,editTextSpouseName,gravidaText ,paraText,spouseNameText;
-    public static Button button;
+    public static Button saveButton,cancelButton;
     public static MaterialSpinner spinnerHeight, pmtctStatusSpinner,levelOfEducationSpinner;
     private ArrayAdapter<String> heightAdapter,pmctcAdapter,levelOfEducationAdapter;
     private ArrayAdapter<String>  facilityAdapter;
@@ -108,49 +112,60 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         setDataLists();
         setFacilistList();
         setupviews();
-//
-//        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-//
-//        toolbar = (Toolbar) findViewById(com.softmed.uzazi_salama.R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//
-//        referalDialogue = new Dialog(this);
-//        referalDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//
-//        Intent intent = this.getIntent();
-//        Bundle bundle = intent.getExtras();
-//        if(bundle == null) {
-//            wardId= null;
-//        } else {
-//            wardId= bundle.getString("selectedLocation");
-//        }
-//        today = Calendar.getInstance();
-//
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (isFormSubmissionOk()) {
-//                    //setting default values
-//                    clientReferral = getClientReferral();
-//                    clientReferral.setReferral_status("0");
-//
-//                    // convert to json
-//                    String gsonReferral = gson.toJson(clientReferral);
-//                    Log.d(TAG, "referral = " + gsonReferral);
-//                    Log.d(TAG, "fname = " + formName);
-//
-//                    // todo start form submission
-//                    saveFormSubmission(gsonReferral, generateRandomUUIDString(), formName, getFormFieldsOverrides());
-//                    Intent resultIntent = new Intent();
-//                    resultIntent.putExtra("status", true);
-//                    setResult(Activity.RESULT_OK, resultIntent);
-//                    finish();
-//                }
-//
-//            }
-//        });
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        toolbar = (Toolbar) findViewById(com.softmed.uzazi_salama.R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        referalDialogue = new Dialog(this);
+        referalDialogue.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle == null) {
+            wardId= null;
+        } else {
+            wardId= bundle.getString("selectedLocation");
+        }
+        today = Calendar.getInstance();
+
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFormSubmissionOk()) {
+                    //setting default values
+                    clientReferral = getClientReferral();
+                    clientReferral.setReferral_status("0");
+
+                    // convert to json
+                    String gsonReferral = gson.toJson(clientReferral);
+                    Log.d(TAG, "referral = " + gsonReferral);
+                    Log.d(TAG, "fname = " + formName);
+
+                    // todo start form submission
+                    saveFormSubmission(gsonReferral, generateRandomUUIDString(), formName, getFormFieldsOverrides());
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("status", true);
+                    setResult(Activity.RESULT_OK, resultIntent);
+                    finish();
+                }
+
+            }
+        });
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFormSubmissionOk()) {
+                    setResult(Activity.RESULT_CANCELED);
+                    finish();
+                }
+
+            }
+        });
+
+
 
     }
 
@@ -226,15 +241,10 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         paraText= (EditText)   findViewById(com.softmed.uzazi_salama.R.id.para);
         spouseNameText = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.spouse_name);
 
-
-
         editTextKijiji = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.village);
-
-        //TODO handle this
-//        editTextReferralReason = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.reason_for_referral);
-
-
-        button = (Button)   findViewById(com.softmed.uzazi_salama.R.id.referal_button);
+        editTextReferralReason = (EditText)   findViewById(com.softmed.uzazi_salama.R.id.reason_for_referral);
+        saveButton = (Button)   findViewById(com.softmed.uzazi_salama.R.id.registered_client_save_button);
+        cancelButton = (Button)   findViewById(com.softmed.uzazi_salama.R.id.registered_client_cancel_button);
 
         heightAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, heightList);
         heightAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -410,7 +420,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
             if(index<=0){
                 message = getResources().getString(com.softmed.uzazi_salama.R.string.wrong_facility);
                 makeToast();
-
                 return false;
             }else {
                 return true;
