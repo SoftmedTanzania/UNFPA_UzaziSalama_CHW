@@ -22,6 +22,7 @@
             android:textSize="20sp" />
     </RelativeLayout>
     <ScrollView
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -167,7 +168,7 @@
 
 
                         <TextView
-                            android:id="@+id/viewVillageLeader"
+                            android:id="@+id/spouse_name"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="16dp"

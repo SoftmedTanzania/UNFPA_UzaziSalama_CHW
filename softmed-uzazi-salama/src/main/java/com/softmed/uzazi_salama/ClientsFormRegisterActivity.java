@@ -299,7 +299,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         heightList.add("Height < 150 cm");
         heightList.add("Height > 150 cm");
 
-
         hpmctcList.clear();
         hpmctcList.add("1");
         hpmctcList.add("2");

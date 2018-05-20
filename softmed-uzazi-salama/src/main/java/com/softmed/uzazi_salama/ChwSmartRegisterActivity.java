@@ -95,12 +95,13 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
     private Cursor cursor;
     public static MaterialSpinner spinnerReason,spinnerClientAvailable;
     public static int availableSelection = -1,reasonSelection = -1;
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
     static final String DATABASE_NAME = "drishti.db";
     private SecuredActivity securedActivity;
     private LinearLayout flags_layout;
     String message ="";
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
     Calendar today = Calendar.getInstance();
+    private List<String> pmctcList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,11 +178,17 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
             e.printStackTrace();
         }
 
+        pmctcList.clear();
+        pmctcList.add("1");
+        pmctcList.add("2");
+        pmctcList.add("U");
+
         TextView textName = (TextView) dialogView.findViewById(R.id.client_name);
         TextView textAge = (TextView) dialogView.findViewById(R.id.agevalue);
-        TextView referral_service = (TextView) dialogView.findViewById(R.id.viewService);
+        TextView spouse_name = (TextView) dialogView.findViewById(R.id.spouse_name);
         TextView facility = (TextView) dialogView.findViewById(R.id.viewFacility);
-        TextView ctc_number = (TextView) dialogView.findViewById(R.id.ctc_number);
+        TextView pmtct_status = (TextView) dialogView.findViewById(R.id.pmtct_status);
+        TextView edd = (TextView) dialogView.findViewById(R.id.edd);
         TextView referral_reason = (TextView) dialogView.findViewById(R.id.reason_for_referral);
         TextView phoneNumber = (TextView) dialogView.findViewById(R.id.viewPhone);
         TextView physicalAddress = (TextView) dialogView.findViewById(R.id.editTextKijiji);
@@ -193,6 +200,12 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
             referralFeedback.setText(clientReferral.getOther_notes());
         }
 
+
+        spouse_name.setText(clientReferral.getSpouse_name());
+
+        edd.setText(dateFormat.format(clientReferral.getEdd()));
+
+        pmtct_status.setText(pmctcList.get(clientReferral.getPmtct_status()));
 
         textName.setText(clientReferral.getFirst_name() +" "+clientReferral.getMiddle_name()+" "+clientReferral.getSurname());
         textAge.setText(ageS + " years");
