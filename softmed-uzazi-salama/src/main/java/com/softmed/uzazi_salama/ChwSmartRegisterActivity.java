@@ -24,36 +24,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-
-import org.ei.opensrp.Context;
-import org.ei.opensrp.adapter.SmartRegisterPaginatedAdapter;
-import org.ei.opensrp.commonregistry.CommonPersonObject;
-import org.ei.opensrp.domain.ClientReferral;
-import org.ei.opensrp.domain.SyncStatus;
-import org.ei.opensrp.domain.form.FormData;
-import org.ei.opensrp.domain.form.FormField;
-import org.ei.opensrp.domain.form.FormInstance;
-import org.ei.opensrp.domain.form.FormSubmission;
-import org.ei.opensrp.commonregistry.CommonRepository;
 import com.softmed.uzazi_salama.Application.BoreshaAfyaApplication;
 import com.softmed.uzazi_salama.DataModels.FollowUp;
-import com.softmed.uzazi_salama.Fragments.FollowupClientsFragment;
 import com.softmed.uzazi_salama.Fragments.CHWSmartRegisterFragment;
 import com.softmed.uzazi_salama.Repository.ClientFollowupPersonObject;
-import com.softmed.uzazi_salama.Repository.ClientReferralPersonObject;
 import com.softmed.uzazi_salama.Repository.FollowUpPersonObject;
 import com.softmed.uzazi_salama.Repository.FollowUpRepository;
 import com.softmed.uzazi_salama.Repository.LocationSelectorDialogFragment;
 import com.softmed.uzazi_salama.pageradapter.BaseRegisterActivityPagerAdapter;
 import com.softmed.uzazi_salama.util.AsyncTask;
 import com.softmed.uzazi_salama.util.Utils;
+
+import org.ei.opensrp.Context;
+import org.ei.opensrp.adapter.SmartRegisterPaginatedAdapter;
+import org.ei.opensrp.commonregistry.CommonPersonObject;
+import org.ei.opensrp.commonregistry.CommonRepository;
+import org.ei.opensrp.domain.ClientReferral;
+import org.ei.opensrp.domain.SyncStatus;
+import org.ei.opensrp.domain.form.FormData;
+import org.ei.opensrp.domain.form.FormField;
+import org.ei.opensrp.domain.form.FormInstance;
+import org.ei.opensrp.domain.form.FormSubmission;
 import org.ei.opensrp.provider.SmartRegisterClientsProvider;
 import org.ei.opensrp.repository.AllSharedPreferences;
 import org.ei.opensrp.sync.SyncAfterFetchListener;
 import org.ei.opensrp.sync.SyncProgressIndicator;
 import org.ei.opensrp.sync.UpdateActionsTask;
 import org.ei.opensrp.util.FormUtils;
-import org.ei.opensrp.view.activity.*;
+import org.ei.opensrp.view.activity.SecuredActivity;
+import org.ei.opensrp.view.activity.SecuredNativeSmartRegisterActivity;
 import org.ei.opensrp.view.dialog.DialogOption;
 import org.ei.opensrp.view.dialog.DialogOptionModel;
 import org.ei.opensrp.view.dialog.OpenFormOption;
@@ -69,7 +68,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -81,7 +79,6 @@ import fr.ganfra.materialspinner.MaterialSpinner;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 import static android.view.View.VISIBLE;
-import static java.lang.String.valueOf;
 import static com.softmed.uzazi_salama.util.Utils.generateRandomUUIDString;
 
 public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity implements LocationSelectorDialogFragment.OnLocationSelectedListener {
@@ -152,12 +149,9 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
 
 
     //TODO fix the details dialogue
-    public void showPreRegistrationDetailsDialog(ClientReferralPersonObject clientReferralPersonObject) {
+    public void showPreRegistrationDetailsDialog(ClientReferral clientReferral) {
 
         final View dialogView = getLayoutInflater().inflate(R.layout.fragment_chwregistration_details, null);
-        String gsonClient = Utils.convertStandardJSONString(clientReferralPersonObject.getDetails());
-        ClientReferral clientReferral = new Gson().fromJson(gsonClient,ClientReferral.class);
-
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ChwSmartRegisterActivity.this);
         dialogBuilder.setView(dialogView)
                 .setCancelable(true);
@@ -192,7 +186,7 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         TextView phoneNumber = (TextView) dialogView.findViewById(R.id.viewPhone);
         TextView physicalAddress = (TextView) dialogView.findViewById(R.id.editTextKijiji);
 
-        if(clientReferralPersonObject.getReferral_status().equals("1")) {
+        if(clientReferral.getReferral_status()==1) {
             dialogView.findViewById(R.id.referral_feedback_title).setVisibility(VISIBLE);
             TextView referralFeedback = (TextView) dialogView.findViewById(R.id.referral_feedback);
             referralFeedback.setVisibility(VISIBLE);
@@ -200,22 +194,17 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         }
 
 
-        textName.setText(clientReferralPersonObject.getFirst_name() +" "+clientReferralPersonObject.getMiddle_name()+" "+clientReferralPersonObject.getSurname());
+        textName.setText(clientReferral.getFirst_name() +" "+clientReferral.getMiddle_name()+" "+clientReferral.getSurname());
         textAge.setText(ageS + " years");
-        referral_service.setText(getReferralServiceName(clientReferralPersonObject.getReferral_service_id()));
-        facility.setText(getFacilityName(clientReferralPersonObject.getFacility_id()));
-        if(!clientReferralPersonObject.getCtc_number().isEmpty())
-            ctc_number.setText(clientReferralPersonObject.getCtc_number());
-        else
-            ctc_number.setText("-");
-        referral_reason.setText(clientReferralPersonObject.getReferral_reason());
+        facility.setText(getFacilityName(clientReferral.getFacility_id()));
+
+        referral_reason.setText(clientReferral.getReferral_reason());
         phoneNumber.setText(clientReferral.getPhone_number());
         physicalAddress.setText(clientReferral.getVillage());
 
-        setIndicators(dialogView,gsonClient);
     }
 
-    public void showPreRegistrationVisitDialog(final ClientReferralPersonObject clientReferralPersonObject)
+    public void showPreRegistrationVisitDialog(final ClientReferral clientReferral)
     {
 
         final View dialogView = getLayoutInflater().inflate(R.layout.fragment_chwregistration_visit_details, null);
@@ -243,9 +232,6 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
 
         spinnerReason.setSelection(reasonSelection);
 
-        String gsonClient = Utils.convertStandardJSONString(clientReferralPersonObject.getDetails());
-        Log.d(TAG, "gsonMom = " + gsonClient);
-
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ChwSmartRegisterActivity.this);
         dialogBuilder.setView(dialogView)
                 .setCancelable(false);
@@ -264,13 +250,12 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
                     makeToast();
                 }else {
 
-                    ClientReferral clientReferral = new Gson().fromJson(clientReferralPersonObject.getDetails(), ClientReferral.class);
 
                     if (spinnerReason.getSelectedItem().toString().equals("Amehama") || spinnerReason.getSelectedItem().toString().equals("Amefariki"))
                         clientReferral.setIs_valid(false);
 
                     clientReferral.setReferral_feedback(spinnerReason.getSelectedItem().toString());
-                    Toast.makeText(ChwSmartRegisterActivity.this, "Asante kwa kumtembelea tena " + clientReferralPersonObject.getFirst_name() + " " + clientReferralPersonObject.getMiddle_name() + " " + clientReferralPersonObject.getSurname(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChwSmartRegisterActivity.this, "Asante kwa kumtembelea tena " + clientReferral.getFirst_name() + " " + clientReferral.getMiddle_name() + " " + clientReferral.getSurname(), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             }
@@ -283,16 +268,14 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         });
 
         TextView textName = (TextView) dialogView.findViewById(R.id.patient_name);
-        textName.setText(clientReferralPersonObject.getFirst_name()+" "+clientReferralPersonObject.getMiddle_name()+" "+ clientReferralPersonObject.getSurname());
+        textName.setText(clientReferral.getFirst_name()+" "+clientReferral.getMiddle_name()+" "+ clientReferral.getSurname());
 
         TextView facility = (TextView) dialog.findViewById(R.id.textview_facility);
-        facility.setText(getFacilityName(clientReferralPersonObject.getFacility_id()));
+        facility.setText(getFacilityName(clientReferral.getFacility_id()));
 
-        TextView service = (TextView) dialog.findViewById(R.id.textview_referral);
-        service.setText(getReferralServiceName(clientReferralPersonObject.getReferral_service_id()));
 
         TextView referral_reason = (TextView) dialog.findViewById(R.id.textview_service);
-        referral_reason.setText(clientReferralPersonObject.getReferral_reason());
+        referral_reason.setText(clientReferral.getReferral_reason());
     }
 
     private void makeToast() {
@@ -323,32 +306,6 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         return commonPersonObjectList.get(0).getColumnmaps().get("name");
     }
 
-    //TODO Coze reimplement this
-    public void setIndicators(View view,String object) {
-        try{
-            JSONObject jsonObj = new JSONObject(object);
-            Log.d(TAG,"jason indicators "+jsonObj.get("indicator_ids"));
-            String list = jsonObj.getString("indicator_ids").toString();
-            Log.d(TAG,"list"+list);
-            list = list.replace("[","");
-            list = list.replace("\"","");
-            list = list.replace("]","");
-            Log.d(TAG,"list"+list);
-            List<String> myList = new ArrayList<String>(Arrays.asList(list.split(",")));
-            Log.d(TAG,"inidcators list "+myList.get(0)+"size "+myList.size());
-            flags_layout = (LinearLayout) view.findViewById(R.id.flags_layout);
-            flags_layout.removeAllViewsInLayout();
-            for(int m =0; m< myList.size(); m++){
-                final TextView rowTextView = new TextView(this);
-                rowTextView.setText(getIndicatorName(myList.get(m)));
-                rowTextView.setPadding(0,10,10,0);
-                flags_layout.addView(rowTextView);
-            }
-        }catch (JSONException e){
-            e.printStackTrace();
-        }
-
-    }
 
     public String getIndicatorName(String id){
         cursor = commonRepository.RawCustomQueryForAdapter("select * FROM indicator where referralServiceIndicatorId ='"+ id +"'");
@@ -491,41 +448,6 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
 
     }
 
-    public void confirmDelete(final ClientReferralPersonObject mother) {
-        String gsonMom = Utils.convertStandardJSONString(mother.getDetails());
-        Log.d(TAG, "gsonMom = " + gsonMom);
-
-        final View dialogView = getLayoutInflater().inflate(R.layout.layout_dialog_confirm_delete, null);
-
-        final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ChwSmartRegisterActivity.this);
-        dialogBuilder.setView(dialogView)
-                .setCancelable(false);
-        final AlertDialog dialog = dialogBuilder.create();
-        dialog.show();
-
-
-        dialogView.findViewById(R.id.textOk).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // todo: Coze delete mother
-
-                FollowupClientsFragment preRegisterFragment = (FollowupClientsFragment) findFragmentByPosition(currentPage);
-                preRegisterFragment.refreshListView();
-                Toast.makeText(ChwSmartRegisterActivity.this, "umemfuta " + mother.getFirst_name() +" "+mother.getSurname(), Toast.LENGTH_SHORT).show();
-
-                dialog.dismiss();
-            }
-        });
-
-        dialogView.findViewById(R.id.textCancel).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-
-    }
 
     private String[] buildFormNameList() {
         List<String> formNames = new ArrayList<String>();

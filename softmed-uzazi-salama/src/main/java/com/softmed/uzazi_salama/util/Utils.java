@@ -22,15 +22,12 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.util.Log;
 
-import com.google.gson.Gson;
-
-import org.ei.opensrp.commonregistry.CommonPersonObject;
-import org.ei.opensrp.domain.ClientReferral;
-import org.ei.opensrp.domain.Indicator;
 import com.softmed.uzazi_salama.Repository.ClientFollowupPersonObject;
-import com.softmed.uzazi_salama.Repository.ClientReferralPersonObject;
 import com.softmed.uzazi_salama.Repository.FacilityObject;
 import com.softmed.uzazi_salama.Repository.ReferralServiceObject;
+
+import org.ei.opensrp.commonregistry.CommonPersonObject;
+import org.ei.opensrp.domain.Indicator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,32 +75,6 @@ public class Utils {
 
     public static boolean hasJellyBean() {
         return Build.VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN;
-    }
-
-    public static ClientReferralPersonObject convertToClientPersonObject(CommonPersonObject commonPersonObject) {
-        String details = commonPersonObject.getColumnmaps().get("details");
-        Log.d(TAG, "details string commonPersonObject = " + convertStandardJSONString(details));
-        try {
-            return new ClientReferralPersonObject(
-                    commonPersonObject.getColumnmaps().get("id"),
-                    commonPersonObject.getColumnmaps().get("relationalid"),
-                    commonPersonObject.getColumnmaps().get("first_name"),
-                    commonPersonObject.getColumnmaps().get("middle_name"),
-                    commonPersonObject.getColumnmaps().get("surname"),
-                    commonPersonObject.getColumnmaps().get("community_based_hiv_service"),
-                    commonPersonObject.getColumnmaps().get("ctc_number"),
-                    Long.parseLong(commonPersonObject.getColumnmaps().get("referral_date")),
-                    commonPersonObject.getColumnmaps().get("facility_id"),
-                    commonPersonObject.getColumnmaps().get("referral_reason"),
-                    commonPersonObject.getColumnmaps().get("referral_service_id"),
-                    commonPersonObject.getColumnmaps().get("referral_status"),
-                    commonPersonObject.getColumnmaps().get("is_valid"),
-                    commonPersonObject.getColumnmaps().get("details")
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
     public static ClientFollowupPersonObject convertToClientFollowupPersonObject(CommonPersonObject commonPersonObject) {
@@ -159,34 +130,7 @@ public class Utils {
     }
 
 
-    public static ClientReferralPersonObject convertToClientObject(ClientReferral commonPersonObject) {
-        String details = new Gson().toJson(commonPersonObject);
-        Log.d(TAG, "details string = " + details);
-        try {
 
-
-
-            return new ClientReferralPersonObject(
-                    commonPersonObject.getId(),
-                    commonPersonObject.getRelationalid(),
-                    commonPersonObject.getFirst_name(),
-                    commonPersonObject.getMiddle_name(),
-                    commonPersonObject.getSurname(),
-                    commonPersonObject.getCommunity_based_hiv_service(),
-                    commonPersonObject.getCtc_number(),
-                    commonPersonObject.getReferral_date(),
-                    commonPersonObject.getFacility_id(),
-                    commonPersonObject.getReferral_reason(),
-                    commonPersonObject.getReferral_service_id(),
-                    commonPersonObject.getReferral_status(),
-                    commonPersonObject.getIs_valid(),
-                    commonPersonObject.getDetails()
-            );
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
     public static FacilityObject convertToFacilityObject(CommonPersonObject commonPersonObject) {
         try {
             return new FacilityObject(
@@ -225,17 +169,6 @@ public class Utils {
     }
 
 
-    public static List<ClientReferralPersonObject> convertToClientReferralPersonObjectList(List<CommonPersonObject> commonPersonObjectsList) {
-        List<ClientReferralPersonObject> clientReferralPersonObjects = new ArrayList<>();
-        for (CommonPersonObject common : commonPersonObjectsList) {
-            clientReferralPersonObjects.add(convertToClientPersonObject(common));
-
-        }
-        Log.d(TAG, "client person Object string = " + clientReferralPersonObjects.toString());
-
-
-        return clientReferralPersonObjects;
-    }
 
     public static List<ClientFollowupPersonObject> convertToClientFollowupPersonObjectList(List<CommonPersonObject> commonPersonObjectsList) {
         List<ClientFollowupPersonObject> clientFollowupPersonObjects = new ArrayList<>();
@@ -247,15 +180,7 @@ public class Utils {
         return clientFollowupPersonObjects;
     }
 
-    public static List<ClientReferralPersonObject> convertToClientReferralList(List<ClientReferral> commonPersonObjectsList) {
-        List<ClientReferralPersonObject> clientReferralPersonObjects = new ArrayList<>();
-        for (ClientReferral common : commonPersonObjectsList) {
-            clientReferralPersonObjects.add(convertToClientObject(common));
-        }
 
-
-        return clientReferralPersonObjects;
-    }
     public static List<FacilityObject> convertToFacilityObjectList(List<CommonPersonObject> commonPersonObjectsList) {
         List<FacilityObject> facilityObjects = new ArrayList<>();
         for (CommonPersonObject common : commonPersonObjectsList) {

@@ -1,31 +1,33 @@
 package com.softmed.uzazi_salama.Application;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.PowerManager;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 import android.util.Pair;
 
 import com.crashlytics.android.Crashlytics;
 import com.google.gson.Gson;
+import com.softmed.uzazi_salama.LoginActivity;
+import com.softmed.uzazi_salama.NativeHomeActivity;
+import com.softmed.uzazi_salama.R;
 
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
 import org.ei.opensrp.Context;
 import org.ei.opensrp.commonregistry.CommonFtsObject;
-import org.ei.opensrp.commonregistry.CommonPersonObject;
 import org.ei.opensrp.commonregistry.CommonRepository;
 import org.ei.opensrp.domain.ClientReferral;
 import org.ei.opensrp.domain.Facility;
 import org.ei.opensrp.domain.Indicator;
 import org.ei.opensrp.domain.ReferralServiceDataModel;
 import org.ei.opensrp.domain.Response;
-import com.softmed.uzazi_salama.LoginActivity;
-import com.softmed.uzazi_salama.NativeHomeActivity;
-import com.softmed.uzazi_salama.R;
-import com.softmed.uzazi_salama.Repository.ClientReferralPersonObject;
-import com.softmed.uzazi_salama.util.Utils;
 import org.ei.opensrp.repository.ClientReferralRepository;
 import org.ei.opensrp.repository.FacilityRepository;
 import org.ei.opensrp.repository.IndicatorRepository;
@@ -42,6 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -50,16 +53,6 @@ import static org.ei.opensrp.AllConstants.GSM_SERVER_URL;
 import static org.ei.opensrp.AllConstants.OPENSRP_FACILITY_URL_PATH;
 import static org.ei.opensrp.AllConstants.OPENSRP_REFERRAL_SERVICES_URL_PATH;
 import static org.ei.opensrp.util.Log.logInfo;
-
-import java.util.Random;
-
-
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.PowerManager;
-import android.util.Log;
 /**
  * Created by koros on 1/22/16.
  */
@@ -82,6 +75,7 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
     private  final int BACKOFF_MILLI_SECONDS = 2000;
     private  final Random random = new Random();
     public Context context;
+    private  ClientReferralRepository clientReferralRepository;
     private CommonRepository commonRepository1,commonRepository,commonRepository2;
     private boolean hasFacility = false;
     private boolean hasService = false;
@@ -216,22 +210,18 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
 
     public void updateReferralStatus(String id,String feedback,String othernotes, String referralStatus){
 
-        commonRepository = context.commonrepository("client_referral");
+        clientReferralRepository = context.clientReferralRepository();
 
-        Cursor cursor = commonRepository.RawCustomQueryForAdapter("select * FROM client_referral WHERE "+CommonRepository.ID_COLUMN+" = '"+id+"'");
+        List<ClientReferral> clientReferrals = clientReferralRepository.RawCustomQueryForAdapter("select * FROM client_referral WHERE "+CommonRepository.ID_COLUMN+" = '"+id+"'");
 
         try {
-            List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "client_referral");
-
-            ClientReferralPersonObject clientReferralPersonObject = Utils.convertToClientReferralPersonObjectList(commonPersonObjectList).get(0);
-
-            ClientReferral clientReferral = new Gson().fromJson(clientReferralPersonObject.getDetails(), ClientReferral.class);
+            ClientReferral clientReferral = clientReferrals.get(0);
             clientReferral.setReferral_status(Integer.valueOf(referralStatus));
             clientReferral.setReferral_feedback(feedback);
             clientReferral.setOther_notes(othernotes);
 
             ContentValues values = new ClientReferralRepository().createValuesUpdateValues(clientReferral);
-            commonRepository.customUpdate(values, id);
+            clientReferralRepository.customUpdate(values, id);
             Log.d(TAG, "updated values = " + values.toString());
         }catch (Exception e){
             e.printStackTrace();

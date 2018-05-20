@@ -82,7 +82,7 @@
     <string name="missing_services">Tafadhali chagua huduma ya rufaa</string>
     <string name="wrong_mobile_number">Tafadhali jaza namba ya simu sahihi</string>
     <string name="unfilled_information">Tafadhali jaza taarifa zinazohitajika</string>
-    <string name="missing_gender">Tafadhali chagua jinsia ya mteja</string>
+    <string name="missing_pmtct_status">Tafadhali chagua pmctc ya mteja</string>
     <string name="missing_physical_address">Tafadhali jaza anwani ya mteja</string>
     <string name="missing_missing_referral_reason">Tafadhali jaza sababu ya rufaa</string>
     <string name="visit_facility_hint">Jaza jina la kituo cha afya</string>

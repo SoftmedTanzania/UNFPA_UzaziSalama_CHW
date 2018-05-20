@@ -2,8 +2,7 @@ package org.ei.opensrp.repository;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-
-import com.google.gson.Gson;
+import android.util.Log;
 
 import net.sqlcipher.database.SQLiteDatabase;
 
@@ -17,7 +16,7 @@ import static net.sqlcipher.DatabaseUtils.longForQuery;
 import static org.apache.commons.lang3.StringUtils.repeat;
 
 public class ClientReferralRepository extends DrishtiRepository {
-    private static final String CHILD_SQL = "CREATE TABLE ClientReferral(" +
+    private static final String CHILD_SQL = "CREATE TABLE anc_client_referral(" +
             "id VARCHAR PRIMARY KEY, " +
             "relationalid VARCHAR, " +
             "first_name VARCHAR, " +
@@ -46,7 +45,7 @@ public class ClientReferralRepository extends DrishtiRepository {
             "is_valid VARCHAR)";
 
 
-    public static final String CLIENT_REFERRAL = "client_referral";
+    public static final String TABLE_NAME = "anc_client_referral";
     public static final String ID_COLUMN = "id";
     public static final String Relational_ID = "relationalid";
     public static final String FIRST_NAME = "first_name";
@@ -108,23 +107,30 @@ public class ClientReferralRepository extends DrishtiRepository {
 
     public void add(ClientReferral clientReferral) {
         SQLiteDatabase database = masterRepository.getWritableDatabase();
-        database.insert(CLIENT_REFERRAL, null, createValuesFor(clientReferral));
+        database.insert(TABLE_NAME, null, createValuesFor(clientReferral));
     }
 
     public void update(ClientReferral clientReferral) {
         SQLiteDatabase database = masterRepository.getWritableDatabase();
-        database.update(CLIENT_REFERRAL, createValuesFor(clientReferral), ID_COLUMN + " = ?", new String[]{String.valueOf(clientReferral.getId())});
+        database.update(TABLE_NAME, createValuesFor(clientReferral), ID_COLUMN + " = ?", new String[]{String.valueOf(clientReferral.getId())});
     }
+    public void customUpdate(ContentValues contentValues, String caseId) {
+        SQLiteDatabase database = masterRepository.getWritableDatabase();
+        Log.d("customInsert", "tableName = " + TABLE_NAME);
+        database.update(TABLE_NAME, contentValues, ID_COLUMN + " = ?", new String[]{caseId});
+
+    }
+
 
     public List<ClientReferral> all() {
         SQLiteDatabase database = masterRepository.getReadableDatabase();
-        Cursor cursor = database.query(CLIENT_REFERRAL, CLIENT_REFERRAL_TABLE_COLUMNS, null, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NAME, CLIENT_REFERRAL_TABLE_COLUMNS, null, null, null, null, null);
         return readAll(cursor);
     }
 
     public ClientReferral find(String caseId) {
         SQLiteDatabase database = masterRepository.getReadableDatabase();
-        Cursor cursor = database.query(CLIENT_REFERRAL, CLIENT_REFERRAL_TABLE_COLUMNS, ID_COLUMN + " = ?", new String[]{caseId}, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NAME, CLIENT_REFERRAL_TABLE_COLUMNS, ID_COLUMN + " = ?", new String[]{caseId}, null, null, null, null);
         List<ClientReferral> children = readAll(cursor);
 
         if (children.isEmpty()) {
@@ -135,13 +141,13 @@ public class ClientReferralRepository extends DrishtiRepository {
 
     public List<ClientReferral> findClientReferralByCaseIds(String... caseIds) {
         SQLiteDatabase database = masterRepository.getReadableDatabase();
-        Cursor cursor = database.rawQuery(String.format("SELECT * FROM %s WHERE %s IN (%s)", CLIENT_REFERRAL, ID_COLUMN, insertPlaceholdersForInClause(caseIds.length)), caseIds);
+        Cursor cursor = database.rawQuery(String.format("SELECT * FROM %s WHERE %s IN (%s)", TABLE_NAME, ID_COLUMN, insertPlaceholdersForInClause(caseIds.length)), caseIds);
         return readAll(cursor);
     }
     public ClientReferral findByServiceStatus(String name) {
 
         SQLiteDatabase database = masterRepository.getReadableDatabase();
-        Cursor cursor = database.query(CLIENT_REFERRAL, CLIENT_REFERRAL_TABLE_COLUMNS, REFERRAL_STATUS + " = ?", new String[]{name}, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NAME, CLIENT_REFERRAL_TABLE_COLUMNS, REFERRAL_STATUS + " = ?", new String[]{name}, null, null, null, null);
         List<ClientReferral> children = readAll(cursor);
 
         if (children.isEmpty()) {
@@ -153,26 +159,26 @@ public class ClientReferralRepository extends DrishtiRepository {
         SQLiteDatabase database = masterRepository.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(REFERRAL_STATUS, name);
-        database.update(CLIENT_REFERRAL, values, ID_COLUMN + " = ?", new String[]{caseId});
+        database.update(TABLE_NAME, values, ID_COLUMN + " = ?", new String[]{caseId});
     }
 
     public List<ClientReferral> findByServiceCaseId(String caseId) {
         SQLiteDatabase database = masterRepository.getReadableDatabase();
-        Cursor cursor = database.query(CLIENT_REFERRAL, CLIENT_REFERRAL_TABLE_COLUMNS, ID_COLUMN + " = ?", new String[]{caseId}, null, null, null, null);
+        Cursor cursor = database.query(TABLE_NAME, CLIENT_REFERRAL_TABLE_COLUMNS, ID_COLUMN + " = ?", new String[]{caseId}, null, null, null, null);
         return readAll(cursor);
     }
 
     public long count() {
-        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + CLIENT_REFERRAL, new String[0]);
+        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + TABLE_NAME, new String[0]);
     }
 
     public long unsuccesfulcount() {
-        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + CLIENT_REFERRAL
+        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + TABLE_NAME
                         + " WHERE " + REFERRAL_STATUS + " = ? ",
                 new String[]{"0"});
     }
     public long succesfulcount() {
-        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + CLIENT_REFERRAL
+        return longForQuery(masterRepository.getReadableDatabase(), "SELECT COUNT(1) FROM " + TABLE_NAME
                         + " WHERE " + REFERRAL_STATUS + " = ? ",
                 new String[]{"1"});
     }
@@ -231,10 +237,15 @@ public class ClientReferralRepository extends DrishtiRepository {
         values.put(OTHER_NOTES, clientReferral.getReferral_status());
         //TODO finish up updating other values
 
-
         return values;
     }
 
+    public List<ClientReferral> RawCustomQueryForAdapter(String query) {
+        Log.i(getClass().getName(), query);
+        SQLiteDatabase database = masterRepository.getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        return readAll(cursor);
+    }
 
     private List<ClientReferral> readAll(Cursor cursor) {
         cursor.moveToFirst();
@@ -242,8 +253,8 @@ public class ClientReferralRepository extends DrishtiRepository {
         while (!cursor.isAfterLast()) {
 
             ClientReferral clientReferral = new ClientReferral();
-            clientReferral.setId(cursor.getInt(cursor.getColumnIndex(ID_COLUMN)));
-            clientReferral.setRelationalid(cursor.getInt(cursor.getColumnIndex(Relational_ID)));
+            clientReferral.setId(cursor.getString(cursor.getColumnIndex(ID_COLUMN)));
+            clientReferral.setRelationalid(cursor.getString(cursor.getColumnIndex(Relational_ID)));
             clientReferral.setFirst_name(cursor.getString(cursor.getColumnIndex(FIRST_NAME)));
             clientReferral.setMiddle_name(cursor.getString(cursor.getColumnIndex(MIDDLE_NAME)));
             clientReferral.setSurname(cursor.getString(cursor.getColumnIndex(SURNAME)));
@@ -287,6 +298,6 @@ public class ClientReferralRepository extends DrishtiRepository {
 
     public void delete(String childId) {
         SQLiteDatabase database = masterRepository.getWritableDatabase();
-        database.delete(CLIENT_REFERRAL, ID_COLUMN + "= ?", new String[]{childId});
+        database.delete(TABLE_NAME, ID_COLUMN + "= ?", new String[]{childId});
     }
 }

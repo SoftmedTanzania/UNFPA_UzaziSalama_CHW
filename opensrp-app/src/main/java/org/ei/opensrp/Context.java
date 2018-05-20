@@ -648,12 +648,14 @@ public class Context {
         }
         return facilityRepository;
     }
-    private ClientReferralRepository clientReferralRepository() {
+    public ClientReferralRepository clientReferralRepository() {
         if (clientReferralRepository == null) {
             clientReferralRepository = new ClientReferralRepository();
         }
         return clientReferralRepository;
     }
+
+
     private IndicatorRepository indicatorRepository() {
         if (indicatorRepository == null) {
             indicatorRepository = new IndicatorRepository();

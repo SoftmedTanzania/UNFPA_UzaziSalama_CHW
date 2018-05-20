@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 public class ClientReferral implements Serializable {
 
-    private String  referral_feedback, other_notes, referral_uuid, first_name, middle_name, surname, facility_id,
+    public String  id,relationalid,referral_feedback, other_notes, referral_uuid, first_name, middle_name, surname, facility_id,
             referral_reason, service_provider_mobile_number, ward, village, map_cue, service_provider_uiid, phone_number,spouse_name;
-    private long date_of_birth, referral_date,lmnp_date,edd;
-    private int id,relationalid,gravida,para,referral_status,level_of_education,pmtct_status;
-    private boolean height_below_average,is_valid;
+    public long date_of_birth, referral_date,lmnp_date,edd;
+    public int gravida,para,referral_status,level_of_education,pmtct_status;
+    public boolean height_below_average,is_valid;
 
     public ClientReferral() {
 
@@ -180,19 +180,19 @@ public class ClientReferral implements Serializable {
         this.edd = edd;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getRelationalid() {
+    public String getRelationalid() {
         return relationalid;
     }
 
-    public void setRelationalid(int relationalid) {
+    public void setRelationalid(String relationalid) {
         this.relationalid = relationalid;
     }
 

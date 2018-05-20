@@ -82,7 +82,7 @@
     <string name="missing_services">Please fill in the referral service</string>
     <string name="wrong_mobile_number">Please fill in the correct mobile number if any</string>
     <string name="unfilled_information">Please fill all required information</string>
-    <string name="missing_gender">Please select clients gender</string>
+    <string name="missing_pmtct_status">Please select clients pmctc status</string>
     <string name="missing_physical_address">Please select Clients Physical address</string>
     <string name="missing_missing_referral_reason">Please fill in the referral reason</string>
     <string name="visit_facility_hint">Enter facility name</string>

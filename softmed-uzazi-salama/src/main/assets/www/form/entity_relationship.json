@@ -1,11 +1,11 @@
 [
     {
         "parent": "facility",
-        "child": "client_referral",
+        "child": "anc_client_referral",
         "field": "client referral",
         "kind": "one_to_many",
         "from": "facility.id",
-        "to": "client_referral.facility_id"
+        "to": "anc_client_referral.facility_id"
     },
     {
         "parent": "facility",

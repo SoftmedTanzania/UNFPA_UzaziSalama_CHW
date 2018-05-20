@@ -2,7 +2,7 @@
   "form_data_definition_version": "4",
   "form": {
     "bind_type": "anc_client_referral",
-    "default_bind_path": "/model/instance/client_referral_form/",
+    "default_bind_path": "/model/instance/anc_client_referral_form/",
     "fields": [
       {
         "name": "id",

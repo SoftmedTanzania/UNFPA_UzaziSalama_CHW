@@ -47,6 +47,7 @@ import org.ei.opensrp.repository.ClientReferralRepository;
 import org.ei.opensrp.view.activity.SecuredNativeSmartRegisterActivity;
 import org.json.JSONObject;
 
+import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -60,7 +61,7 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 import static com.softmed.uzazi_salama.util.Utils.generateRandomUUIDString;
 
 /**
- * Created by issy on 11/17/17.
+ * Created by Coze on 05/17/18.
  */
 
 public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActivity {
@@ -88,15 +89,15 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     public static Context context;
     public static int clientServiceSelection = -1,genderSelection = -1;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-    private String  formName = "client_referral_form";
+    private String  formName = "anc_client_referral_form";
     private String recordId,wardId="";
     private ClientReferral clientReferral;
     private Gson gson = new Gson();
     private JSONObject fieldOverides = new JSONObject();
-    private CommonRepository commonRepository,commonRepository1;
+    private ClientReferralRepository clientReferralRepository;
+    private CommonRepository commonRepository;
     private Cursor cursor;
     private MaterialEditText dobTextView,lnmpTextView,eddTextView ;
-    private List<ReferralServiceObject> referralServiceList;
     private List<FacilityObject> facilitiesList;
     ArrayList<String> genderList = new ArrayList<String>();
     public Dialog referalDialogue;
@@ -143,7 +144,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
                     Log.d(TAG, "referral = " + gsonReferral);
                     Log.d(TAG, "fname = " + formName);
 
-                    // todo start form submission
                     saveFormSubmission(gsonReferral, generateRandomUUIDString(), formName, getFormFieldsOverrides());
                     Intent resultIntent = new Intent();
                     resultIntent.putExtra("status", true);
@@ -164,8 +164,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
             }
         });
 
-
-
     }
 
 
@@ -173,38 +171,46 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     public void saveFormSubmission(String formSubmission, final String id, String formName, JSONObject fieldOverrides) {
         // save the form
             final ClientReferral clientReferral = gson.fromJson(formSubmission, ClientReferral.class);
-            clientReferral.setId(Integer.valueOf(id));
+            clientReferral.setId(id);
             ContentValues values = new ClientReferralRepository().createValuesFor(clientReferral);
             Log.d(TAG, "values = " + gson.toJson(values));
 
-            commonRepository = context().commonrepository("client_referral");
-            commonRepository.customInsert(values);
+            clientReferralRepository = context().clientReferralRepository();
+            clientReferralRepository.add(clientReferral);
 
-            CommonPersonObject c = commonRepository.findByCaseID(id);
             List<FormField> formFields = new ArrayList<>();
 
-            formFields.add(new FormField("id", c.getCaseId(), commonRepository.TABLE_NAME + "." + "id"));
-            formFields.add(new FormField("relationalid", c.getCaseId(), commonRepository.TABLE_NAME + "." + "relationalid"));
+            formFields.add(new FormField("id", id, ClientReferralRepository.TABLE_NAME + "." + "id"));
+            formFields.add(new FormField("relationalid", clientReferral.getRelationalid(), ClientReferralRepository.TABLE_NAME + "." + "relationalid"));
 
             FormData formData;
             FormInstance formInstance;
             FormSubmission submission;
 
-                for ( String key : c.getDetails().keySet() ) {
-                    Log.d(TAG,"key = "+key);
-                  if(key.equals("facility_id")){
-                        FormField f = new FormField(key, c.getDetails().get(key), "facility.id");
-                        formFields.add(f);
+                for (Field field : ClientReferral.class.getDeclaredFields()) {
+                    Log.d(TAG,"key = "+field);
+                  if(field.getName().equals("facility_id")){
+                      FormField f = null;
+                      try {
+                          f = new FormField(field.getName(), String.valueOf(field.get(clientReferral)), "facility.id");
+                      } catch (IllegalAccessException e) {
+                          e.printStackTrace();
+                      }
+                      formFields.add(f);
                     }else{
-                        FormField f = new FormField(key, c.getDetails().get(key), commonRepository.TABLE_NAME + "." + key);
-                        formFields.add(f);
+                      FormField f = null;
+                      try {
+                          f = new FormField(field.getName(), String.valueOf(field.get(clientReferral)), ClientReferralRepository.TABLE_NAME + "." + field.getName());
+                      } catch (IllegalAccessException e) {
+                          e.printStackTrace();
+                      }
+                      formFields.add(f);
                     }
                 }
                 Log.d(TAG,"form field = "+ new Gson().toJson(formFields));
-                Log.d(TAG,"am in tb");
-                formData = new FormData("client_referral","/model/instance/client_referral_form/",formFields,null);
+                formData = new FormData("anc_client_referral","/model/instance/anc_client_referral_form/",formFields,null);
                 formInstance  = new FormInstance(formData,"1");
-                submission= new FormSubmission(generateRandomUUIDString(),id,"client_referral_form",new Gson().toJson(formInstance),"4", SyncStatus.PENDING,"4");
+                submission= new FormSubmission(generateRandomUUIDString(),id,"anc_client_referral_form",new Gson().toJson(formInstance),"4", SyncStatus.PENDING,"4");
                 context().formDataRepository().saveFormSubmission(submission);
 
             new  com.softmed.uzazi_salama.util.AsyncTask<Void, Void, Void>(){
@@ -289,14 +295,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
     }
     
     private void setDataLists(){
-//        commonRepository = context().commonrepository("referral_service");
-//        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service");
-//        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-//        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-//        this.referralServiceList = Utils.convertToServiceObjectList(commonPersonObjectList);
-//        int size = referralServiceList.size();
-//
-
         heightList.clear();
         heightList.add("Height < 150 cm");
         heightList.add("Height > 150 cm");
@@ -318,7 +316,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
 
 
     private void setFacilistList(){
-        commonRepository1 = context().commonrepository("facility");
+        commonRepository = context().commonrepository("facility");
         cursor = commonRepository.RawCustomQueryForAdapter("select * FROM facility");
         List<CommonPersonObject> commonPersonObjectList2 = commonRepository.readAllcommonForField(cursor, "facility");
         Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList2));
@@ -407,8 +405,12 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         }else if (!TextUtils.isEmpty(facilitytextView.getText())) {
             String facilityName = facilitytextView.getText().toString();
 
+
             facilityName = facilityName.trim();
-            int index = facilitiesList.indexOf(facilityName);
+            int index = facilityList.indexOf(facilityName);
+
+            Log.d(TAG,"Selected health facility = "+facilityName);
+            Log.d(TAG,"Selected health index = "+index);
 
             if(index<=0){
                 message = getResources().getString(com.softmed.uzazi_salama.R.string.wrong_facility);
@@ -419,7 +421,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
             }
 
         }else if (pmtctStatusSpinner.getSelectedItemPosition() <=0) {
-            message = getResources().getString(com.softmed.uzazi_salama.R.string.missing_gender);
+            message = getResources().getString(com.softmed.uzazi_salama.R.string.missing_pmtct_status);
             makeToast();
             return false;
 
@@ -485,44 +487,6 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
 
         return commonPersonObjectList.get(0).getColumnmaps().get("id");
     }
-
-    public List<Indicator> getIndicator(String id){
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM indicator where referralIndicatorId ='"+ id +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "indicator");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        List<Indicator> indicator = Utils.convertToIndicatorList(commonPersonObjectList);
-        return indicator;
-    }
-
-    public String getIndicatorId(String name){
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM indicator where indicatorName ='"+ name +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "indicator");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        return commonPersonObjectList.get(0).getColumnmaps().get("referralServiceIndicatorId");
-    }
-
-    public String getReferralServiceId(String name){
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service where name ='"+ name +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        return commonPersonObjectList.get(0).getColumnmaps().get("id");
-    }
-
-    public String getCategory(String name){
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service where category ='"+ name +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        return commonPersonObjectList.get(0).getColumnmaps().get("category");
-    }
-
     private void makeToast() {
         Toast.makeText(this,
                 message,

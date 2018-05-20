@@ -1,7 +1,6 @@
 package com.softmed.uzazi_salama.pageradapter;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,14 +9,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-
-import org.ei.opensrp.commonregistry.CommonPersonObject;
-import org.ei.opensrp.commonregistry.CommonRepository;
-import org.ei.opensrp.domain.ClientReferral;
 import com.softmed.uzazi_salama.ChwSmartRegisterActivity;
 import com.softmed.uzazi_salama.R;
-import com.softmed.uzazi_salama.Repository.ClientReferralPersonObject;
-import com.softmed.uzazi_salama.util.Utils;
+
+import org.ei.opensrp.domain.ClientReferral;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,20 +21,18 @@ import java.util.Locale;
 
 
 /**
- * Created by martha on 8/22/17.
+ * Created by Coze on 05/19/18.
  */
 
 public class ReferredClientsListAdapter extends
         RecyclerView.Adapter<ReferredClientsListAdapter.ViewHolder> {
     private static String TAG = ReferredClientsListAdapter.class.getSimpleName();
-    private CommonRepository commonRepository;
-    private List<ClientReferralPersonObject> clients = new ArrayList<>();;
+    private List<ClientReferral> clients = new ArrayList<>();;
     private Context mContext;
 
-    public ReferredClientsListAdapter(Context context, List<ClientReferralPersonObject> client, CommonRepository commonRepository) {
+    public ReferredClientsListAdapter(Context context, List<ClientReferral> client) {
         clients = client;
         mContext = context;
-        this.commonRepository = commonRepository;
 
     }
 
@@ -61,13 +54,7 @@ public class ReferredClientsListAdapter extends
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
 
-         ClientReferralPersonObject client = clients.get(position);
-
-        String gsonReferral = Utils.convertStandardJSONString(client.getDetails());
-        Log.d(TAG, "gsonReferral0 = " +gsonReferral);
-        final ClientReferral clientReferral = new Gson().fromJson(gsonReferral,ClientReferral.class);
-        Log.d(TAG, "gsonReferral1 = " +new Gson().toJson(clientReferral));
-        Log.d(TAG, "gsonReferral2 = " + new Gson().toJson(client.getDetails()));
+        ClientReferral client = clients.get(position);
 
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
@@ -76,13 +63,12 @@ public class ReferredClientsListAdapter extends
         viewHolder.nameTextView.setText(client.getFirst_name()+" "+client.getMiddle_name()+" "+client.getSurname());
         viewHolder.referralReason.setText(client.getReferral_reason());
         viewHolder.scheduleDateTextView.setText(dateFormat.format(client.getReferral_date()));
-        viewHolder.serviceName.setText(getReferralServiceName(client.getReferral_service_id()));
 
 
-        if(client.getReferral_status().equals("0")){
+        if(client.getReferral_status() == 0){
             viewHolder.referralStatus.setText(R.string.pending_label);
             viewHolder.statusIcon.setBackgroundColor(mContext.getResources().getColor(R.color.blue_400));
-        }else if(client.getReferral_status().equals("1")){
+        }else if(client.getReferral_status() == 1){
             viewHolder.referralStatus.setText(R.string.suceessful_label);
             viewHolder.statusIcon.setBackgroundColor(mContext.getResources().getColor(R.color.green_400));
         }else{
@@ -101,7 +87,7 @@ public class ReferredClientsListAdapter extends
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView, referralReason, scheduleDateTextView, referralStatus,serviceName;
+        public TextView nameTextView, referralReason, scheduleDateTextView, referralStatus;
         public View statusIcon;
 
         public ViewHolder(View itemView) {
@@ -110,7 +96,6 @@ public class ReferredClientsListAdapter extends
             referralReason = (TextView) itemView.findViewById(R.id.referral_reasons);
             referralStatus = (TextView) itemView.findViewById(R.id.status);
             scheduleDateTextView = (TextView) itemView.findViewById(R.id.ref_date);
-            serviceName = (TextView) itemView.findViewById(R.id.referral_service);
             statusIcon = itemView.findViewById(R.id.status_color);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -127,16 +112,4 @@ public class ReferredClientsListAdapter extends
     }
 
 
-    public String getReferralServiceName(String id){
-        Cursor cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service where id ='"+ id +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-
-        try {
-            return commonPersonObjectList.get(0).getColumnmaps().get("name");
-        }catch (Exception e){
-            e.printStackTrace();
-            return "";
-        }
-    }
 }
