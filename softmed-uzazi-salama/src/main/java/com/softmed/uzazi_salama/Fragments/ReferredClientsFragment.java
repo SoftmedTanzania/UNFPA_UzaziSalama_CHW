@@ -52,7 +52,7 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
     private long startDate = 0, endDate = 0;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
     private Gson gson = new Gson();
-    private EditText fname, othername, ctc_number, textStartDate, textEndDate;
+    private EditText fname, othername, textStartDate, textEndDate;
     public String message = "";
     MaterialSpinner spinnerType;
     private RecyclerView recyclerView;
@@ -104,7 +104,7 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
                     new QueryTask().execute(
                             queryBuilder.toString(),
                             TABLE_NAME,
-                            getFname(), getOthername(), getCTCNumber(), getFromDate(), getToDate(), isDateRangeSet());
+                            getFname(), getOthername(), getFromDate(), getToDate(), isDateRangeSet());
 
                 } else {
                     Log.d(TAG, "am in false else");
@@ -125,7 +125,6 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
 
         fname = (EditText) v.findViewById(R.id.client_name_et);
         othername = (EditText) v.findViewById(R.id.client_last_name_et);
-        ctc_number = (EditText) v.findViewById(R.id.client_ctc_number_et);
         textStartDate = (EditText) v.findViewById(R.id.from_date);
         textEndDate = (EditText) v.findViewById(R.id.to_date);
 
@@ -170,14 +169,6 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
         return value;
     }
 
-    private String getCTCNumber() {
-        String value = "";
-        if (!(ctc_number.getText().toString()).isEmpty()) {
-            value = ctc_number.getText().toString();
-        }
-        return value;
-    }
-
     private String getFromDate() {
         String value = "";
         if (!(textStartDate.getText().toString()).isEmpty()) {
@@ -201,7 +192,7 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
     }
 
     private boolean isQueryInitializationOk() {
-        if ((fname.getText().toString()).isEmpty() && (othername.getText().toString()).isEmpty() && (ctc_number.getText().toString()).isEmpty() && (textStartDate.getText().toString()).isEmpty() && (textEndDate.getText().toString()).isEmpty()) {
+        if ((fname.getText().toString()).isEmpty() && (othername.getText().toString()).isEmpty()  && (textStartDate.getText().toString()).isEmpty() && (textEndDate.getText().toString()).isEmpty()) {
             // date range not defined properly
             message = "hujachagua kitu cha kutafuta";
             makeToast();
@@ -272,7 +263,6 @@ public class ReferredClientsFragment extends SecuredNativeSmartRegisterCursorAda
             @SuppressWarnings("deprecation")
             @Override
             public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-                // todo get picked date update view
                 GregorianCalendar pickedDate = new GregorianCalendar(year, monthOfYear, dayOfMonth);
                 Log.d(TAG, "pickedDate = " + pickedDate.getTimeInMillis());
 

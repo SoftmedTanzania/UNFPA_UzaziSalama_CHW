@@ -295,27 +295,6 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         return commonPersonObjectList.get(0).getColumnmaps().get("name");
     }
 
-    public String getReferralServiceName(String id){
-
-        commonRepository = context().commonrepository("referral_service");
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM referral_service where id ='"+ id +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "referral_service");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        return commonPersonObjectList.get(0).getColumnmaps().get("name");
-    }
-
-
-    public String getIndicatorName(String id){
-        cursor = commonRepository.RawCustomQueryForAdapter("select * FROM indicator where referralServiceIndicatorId ='"+ id +"'");
-
-        List<CommonPersonObject> commonPersonObjectList = commonRepository.readAllcommonForField(cursor, "indicator");
-        Log.d(TAG, "commonPersonList = " + gson.toJson(commonPersonObjectList));
-
-        return commonPersonObjectList.get(0).getColumnmaps().get("indicatorName");
-    }
-
     public void showFollowUpFormDialog(final ClientFollowupPersonObject clientperson) {
 
         String gsonClient = Utils.convertStandardJSONString(clientperson.getDetails());

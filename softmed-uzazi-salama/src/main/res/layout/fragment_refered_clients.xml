@@ -70,21 +70,6 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/client_ctc_number_et"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"
-                android:drawableRight="@drawable/ic_credit_card_black_24dp"
-                android:hint="@string/title_ctc_number"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                android:textColor="@color/card_title_text"
-                android:textColorHint="@color/card_grid_tex"
-                android:textSize="14sp" />
-
-            <EditText
                 android:id="@+id/from_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
