@@ -28,14 +28,12 @@ import com.google.gson.Gson;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.softmed.uzazi_salama.Application.BoreshaAfyaApplication;
 import com.softmed.uzazi_salama.Repository.FacilityObject;
-import com.softmed.uzazi_salama.Repository.ReferralServiceObject;
 import com.softmed.uzazi_salama.util.Utils;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import org.ei.opensrp.commonregistry.CommonPersonObject;
 import org.ei.opensrp.commonregistry.CommonRepository;
 import org.ei.opensrp.domain.ClientReferral;
-import org.ei.opensrp.domain.Indicator;
 import org.ei.opensrp.domain.SyncStatus;
 import org.ei.opensrp.domain.form.FormData;
 import org.ei.opensrp.domain.form.FormField;
@@ -113,6 +111,8 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         setFacilistList();
         setupviews();
 
+
+        Log.d(TAG,"provider UUID = "+((BoreshaAfyaApplication)getApplication()).getCurrentUserID());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         toolbar = (Toolbar) findViewById(com.softmed.uzazi_salama.R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -466,9 +466,7 @@ public class ClientsFormRegisterActivity extends SecuredNativeSmartRegisterActiv
         referral.setFacility_id(getFacilityId(facilitytextView.getText().toString()));
         referral.setReferral_reason(editTextReferralReason.getText().toString());
         referral.setWard(wardId);
-        referral.setService_provider_uiid(((BoreshaAfyaApplication)getApplication()).getCurrentUserID());
-
-
+        referral.setService_provider_uuid(((BoreshaAfyaApplication)getApplication()).getCurrentUserID());
 
 
         return referral;

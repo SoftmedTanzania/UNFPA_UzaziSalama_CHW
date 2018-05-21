@@ -81,7 +81,7 @@
         "name": "referral_feedback"
       },
       {
-        "name": "service_provider_uiid"
+        "name": "service_provider_uuid"
       }
     ]
   }

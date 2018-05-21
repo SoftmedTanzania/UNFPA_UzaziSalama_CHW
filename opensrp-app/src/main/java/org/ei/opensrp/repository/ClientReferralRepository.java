@@ -41,7 +41,7 @@ public class ClientReferralRepository extends DrishtiRepository {
             "referral_status VARCHAR, " +
             "other_notes VARCHAR, " +
             "referral_feedback VARCHAR, " +
-            "service_provider_uiid VARCHAR, " +
+            "service_provider_uuid VARCHAR, " +
             "is_valid VARCHAR)";
 
 
@@ -70,7 +70,7 @@ public class ClientReferralRepository extends DrishtiRepository {
     public static final String REFERRAL_STATUS = "referral_status";
     public static final String OTHER_NOTES = "other_notes";
     public static final String REFERRAL_FEEDBACK = "referral_feedback";
-    public static final String SERVICE_PROVIDER_UUID = "service_provider_uiid";
+    public static final String SERVICE_PROVIDER_UUID = "service_provider_uuid";
     public static final String IS_VALID = "is_valid";
     public static final String[] CLIENT_REFERRAL_TABLE_COLUMNS = {
             ID_COLUMN,
@@ -223,7 +223,7 @@ public class ClientReferralRepository extends DrishtiRepository {
         values.put(REFERRAL_FEEDBACK, clientReferral.getReferral_feedback());
         values.put(OTHER_NOTES, clientReferral.getOther_notes());
         values.put(REFERRAL_STATUS, clientReferral.getReferral_status());
-        values.put(SERVICE_PROVIDER_UUID, clientReferral.getService_provider_uiid());
+        values.put(SERVICE_PROVIDER_UUID, clientReferral.getService_provider_uuid());
         values.put(IS_VALID, clientReferral.is_valid());
 
         return values;
@@ -277,7 +277,7 @@ public class ClientReferralRepository extends DrishtiRepository {
             clientReferral.setReferral_feedback(cursor.getString(cursor.getColumnIndex(REFERRAL_FEEDBACK)));
             clientReferral.setOther_notes(cursor.getString(cursor.getColumnIndex(OTHER_NOTES)));
             clientReferral.setReferral_status(cursor.getInt(cursor.getColumnIndex(REFERRAL_STATUS)));
-            clientReferral.setService_provider_uiid(cursor.getString(cursor.getColumnIndex(SERVICE_PROVIDER_UUID)));
+            clientReferral.setService_provider_uuid(cursor.getString(cursor.getColumnIndex(SERVICE_PROVIDER_UUID)));
             clientReferral.setIs_valid(cursor.getInt(cursor.getColumnIndex(IS_VALID))==1);
 
             referralServicesListDataModel.add(clientReferral);

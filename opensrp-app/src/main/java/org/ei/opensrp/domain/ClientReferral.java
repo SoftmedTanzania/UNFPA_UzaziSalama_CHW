@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class ClientReferral implements Serializable {
 
     public String  id,relationalid,referral_feedback, other_notes, referral_uuid, first_name, middle_name, surname, facility_id,
-            referral_reason, service_provider_mobile_number, ward, village, map_cue, service_provider_uiid, phone_number,spouse_name;
+            referral_reason, service_provider_mobile_number, ward, village, map_cue, service_provider_uuid, phone_number,spouse_name;
     public long date_of_birth, referral_date,lmnp_date,edd;
     public int gravida,para,referral_status,level_of_education,pmtct_status;
     public boolean height_below_average,is_valid;
@@ -116,12 +116,12 @@ public class ClientReferral implements Serializable {
         this.map_cue = map_cue;
     }
 
-    public String getService_provider_uiid() {
-        return service_provider_uiid;
+    public String getService_provider_uuid() {
+        return service_provider_uuid;
     }
 
-    public void setService_provider_uiid(String service_provider_uiid) {
-        this.service_provider_uiid = service_provider_uiid;
+    public void setService_provider_uuid(String service_provider_uuid) {
+        this.service_provider_uuid = service_provider_uuid;
     }
 
     public String getPhone_number() {
