@@ -17,7 +17,7 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="72dp"
+                android:layout_height="68dp"
                 android:gravity="center_vertical"
                 android:background="@color/colorPrimaryDark"
                 android:orientation="horizontal">
@@ -30,7 +30,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:id="@+id/patient_name_title"
                         android:textColor="@color/white"
                         android:text="@string/title_visiting" />
@@ -39,7 +39,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
-                        android:textSize="20sp"
+                        android:textSize="18sp"
                         android:id="@+id/patient_name"
                         android:textColor="@color/white"/>
                 </LinearLayout>
@@ -59,10 +59,10 @@
                     <TextView
                         android:id="@+id/textViewReferralReason"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="44dp"
                         android:gravity="center_vertical"
                         android:layout_gravity="right"
-                        android:textSize="15sp"
+                        android:textSize="11sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="16dp"
                         android:layout_centerVertical="true"
@@ -71,20 +71,20 @@
                     <TextView
                         android:id="@+id/textViewReferralService"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="44dp"
                         android:gravity="center_vertical"
                         android:layout_marginEnd="16dp"
                         android:textStyle="bold"
-                        android:textSize="15sp"
+                        android:textSize="11sp"
                         android:layout_gravity="right"
                         android:layout_centerVertical="true"
                         android:text="@string/followup_reasons"/>
                     <TextView
                         android:id="@+id/textViewReferralfacility"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="44dp"
                         android:gravity="center_vertical"
-                        android:textSize="15sp"
+                        android:textSize="11sp"
                         android:layout_gravity="right"
                         android:textStyle="bold"
                         android:layout_marginEnd="16dp"
@@ -100,32 +100,32 @@
                         android:layout_toRightOf="@+id/textViewReferralReason"
                         android:id="@+id/textview_feedback"
                         android:layout_width="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:textSize="15sp"
+                        android:layout_marginLeft="12dp"
+                        android:textSize="11sp"
                         android:gravity="center_vertical"
                         android:layout_height="48dp"/>
                     <TextView
                         android:layout_toRightOf="@+id/textViewReferralService"
                         android:id="@+id/textview_followupreason"
                         android:layout_width="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="12dp"
                         android:gravity="center_vertical"
-                        android:layout_height="48dp"
-                        android:textSize="15sp"/>
+                        android:layout_height="44dp"
+                        android:textSize="11sp"/>
                     <TextView
                         android:layout_toRightOf="@+id/textViewReferralfacility"
                         android:id="@+id/textview_facility"
                         android:layout_width="wrap_content"
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
-                        android:textSize="15sp"
+                        android:layout_marginLeft="12dp"
+                        android:textSize="11sp"
                         android:layout_height="48dp"/>
                 </LinearLayout>
             </LinearLayout>
 
 
             <LinearLayout
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="12dp"
                 android:layout_marginRight="16dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
@@ -134,22 +134,22 @@
                     android:id="@+id/spinnerClientAvailable"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="12dp"
                     android:layout_weight="0.5"
                     app:ms_arrowColor="@color/accent"
-                    app:ms_arrowSize="14dp"
+                    app:ms_arrowSize="10dp"
                     app:ms_baseColor="@color/accent"
                     app:ms_enableFloatingLabel="false"
                     app:ms_hint="@string/hint_met_client"
                     app:ms_multiline="false"
                     app:ms_thickness="1dp"
-                    app:paddingStart="32dp"
-                    app:paddingEnd="32dp" />
+                    app:paddingStart="28dp"
+                    app:paddingEnd="28dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="4dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
@@ -158,22 +158,22 @@
                     android:id="@+id/spinnerReason"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:layout_weight="0.5"
                     app:ms_arrowColor="@color/accent"
-                    app:ms_arrowSize="14dp"
+                    app:ms_arrowSize="12dp"
                     app:ms_baseColor="@color/accent"
                     app:ms_enableFloatingLabel="false"
                     app:ms_hint="@string/hint_missing_reasons"
                     app:ms_hintColor="@color/hint_text"
                     app:ms_multiline="false"
                     app:ms_thickness="1dp"
-                    app:paddingEnd="16dp"
+                    app:paddingEnd="14dp"
                     app:paddingStart="16dp" />
             </LinearLayout>
             <LinearLayout
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
@@ -182,13 +182,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="true"
-                    app:paddingStart="32dp"
-                    app:paddingEnd="32dp"
+                    app:paddingStart="28dp"
+                    app:paddingEnd="28dp"
                     android:hint="@string/client_condition"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/primary_text"
                     android:textColorHint="@color/secondary_text"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     app:met_floatingLabel="normal"
                     app:met_floatingLabelText="@string/client_condition"
                     app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -200,34 +200,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:paddingBottom="4dp">
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_width="100dp"
+                    android:layout_height="38dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:id="@+id/tuma_button"
                     android:background="@drawable/border_four"
                     android:text="@string/button_save"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
-                    android:layout_marginTop="32dp"/>
+                    android:layout_marginTop="28dp"/>
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_width="100dp"
+                    android:layout_height="38dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:layout_toLeftOf="@id/tuma_button"
                     android:id="@+id/cancel_button"
                     android:background="@drawable/border_four"
                     android:text="@string/button_delete"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
-                    android:layout_marginTop="32dp"/>
+                    android:layout_marginTop="28dp"/>
 
             </RelativeLayout>
 

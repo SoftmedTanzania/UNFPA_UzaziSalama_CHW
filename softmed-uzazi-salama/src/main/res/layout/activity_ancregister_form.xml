@@ -36,13 +36,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
         android:src="@drawable/ic_check"
         android:tint="@android:color/white"
 
 
         app:backgroundTint="@color/accent"
-        app:elevation="6dp"
+        app:elevation="5dp"
         app:fabSize="normal"
         app:pressedTranslationZ="14dp"
         app:rippleColor="@android:color/white" />

@@ -14,8 +14,8 @@
             android:scaleType="center"
             android:src="@drawable/homestacks"
             android:background="@drawable/transparent_gray_background"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"/>
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"/>
 
     <ImageView
             android:id="@+id/home_title_separator"
@@ -30,8 +30,8 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_toRightOf="@id/home_title_separator"
-            android:paddingLeft="5dp"
-            android:paddingRight="13dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="11dp"
             android:orientation="horizontal"
             android:background="@drawable/transparent_gray_background">
 

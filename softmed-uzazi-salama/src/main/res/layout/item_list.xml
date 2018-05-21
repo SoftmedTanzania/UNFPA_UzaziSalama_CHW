@@ -6,8 +6,8 @@
     android:name="com.softmed.htmr_chw.Fragments.ItemListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:layout_marginLeft="14dp"
+    android:layout_marginRight="14dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".Fragments.ItemListActivity"
     tools:listitem="@layout/item_list_content" />

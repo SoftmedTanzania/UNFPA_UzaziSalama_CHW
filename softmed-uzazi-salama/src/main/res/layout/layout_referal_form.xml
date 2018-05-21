@@ -9,10 +9,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="6dp"
 
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="1dp"
@@ -22,12 +22,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="6dp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="6dp"
         android:clipChildren="true"
         app:cardElevation="4dp">
         <LinearLayout
@@ -37,13 +37,13 @@
             <TextView
                 android:background="@color/light_blue"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="50dp"
                 android:text="TAARIFA ZA MTEJA"
                 android:textColor="@color/primary_text"
                 android:gravity="center_vertical"
-                android:paddingLeft="16dp"
+                android:paddingLeft="14dp"
                 android:layout_marginBottom="8dp"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"/>
             <LinearLayout
                 android:visibility="gone"
@@ -57,16 +57,16 @@
                     android:id="@+id/layoutDatePick"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="6dp"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:paddingLeft="16dp"
+                    android:paddingLeft="14dp"
                     android:paddingRight="0dp">
 
                     <ImageView
                         android:id="@+id/iconCalendar"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:padding="1dp"
                         android:src="@drawable/ic_calendar_today"
                         android:tint="@color/colorPrimary" />
@@ -79,7 +79,7 @@
                         android:layout_marginLeft="4dp"
                         android:text="dd mmm yyyy"
                         android:textColor="@color/secondary_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -88,8 +88,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:paddingBottom="24dp">
+                android:layout_margin="14dp"
+                android:paddingBottom="22dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="1"
@@ -106,7 +106,7 @@
                         android:imeOptions="actionNext"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_floatingLabelText="Jina la kwanza"
                         app:met_floatingLabel="normal"
                         android:inputType="textCapWords|textPersonName"
@@ -119,11 +119,11 @@
                         android:layout_width="0dp"
                         android:layout_weight="0.2"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:imeOptions="actionNext"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:hint="Jina la kati"
                         app:met_floatingLabelText="Jina la kati"
                         app:met_floatingLabel="normal"
@@ -141,7 +141,7 @@
                         android:imeOptions="actionNext"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         android:hint="Jina la mwisho"
                         app:met_floatingLabelText="Jina la mwisho"
                         app:met_floatingLabel="normal"
@@ -154,14 +154,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginRight="6dp"
                         android:layout_weight="0.3"
                         android:hint="Namba ya simu"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_floatingLabelText="Namba ya simu ya Mteja"
                         app:met_floatingLabel="normal"
                         app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -171,21 +171,21 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_height="wrap_content">
                     <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/editTextMotherAge"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginRight="6dp"
                         android:layout_weight="1"
                         android:hint="Umri wa Mteja"
                         android:imeOptions="actionNext"
                         android:inputType="number"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_floatingLabelText="Umri wa Mteja"
                         app:met_floatingLabel="normal"
                         app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -200,7 +200,7 @@
                         android:textColor="@color/text_black"
                         android:inputType="date"
                         android:id="@+id/reg_dob"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_iconRight="@drawable/ic_calendar_today"
                         app:met_floatingLabelText="Date of birth"
                         app:met_floatingLabel="normal"
@@ -219,18 +219,18 @@
                             android:layout_gravity="center_vertical"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="8dp"
+                            android:padding="6dp"
                             android:text="Jinsia"
                             android:textColor="@color/secondary_text"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
                         <RadioGroup
                             android:id="@+id/radioGroupGender"
                             android:layout_width="0dp"
                             android:layout_weight="0.4"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="16dp"
+                            android:paddingLeft="14dp"
                             android:orientation="horizontal"
-                            android:paddingRight="16dp">
+                            android:paddingRight="14dp">
                             <RadioButton
                                 android:id="@+id/male"
                                 android:layout_width="wrap_content"
@@ -258,7 +258,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="0dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="0.5"
                         android:imeOptions="actionNext"
                         android:hint="Mahali anapokaa"
@@ -268,16 +268,16 @@
                         app:met_floatingLabelText="Mahali anapokaa"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
 
 
                     <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/editTextVillageLeader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="14dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="6dp"
                         android:layout_weight="0.5"
                         android:hint="Jina la mwenyekiti wa kijitongoji"
                         android:inputType="textCapWords|textPersonName"
@@ -286,36 +286,36 @@
                         app:met_floatingLabelText="Mahali anapokaa"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"/>
+                        android:textSize="12sp"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:layout_height="wrap_content">
                     <fr.ganfra.materialspinner.MaterialSpinner
                         android:id="@+id/spinnerService"
                         android:layout_width="0dp"
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginRight="14dp"
                         app:ms_arrowColor="@color/accent"
-                        app:ms_arrowSize="14dp"
+                        app:ms_arrowSize="12dp"
                         app:ms_baseColor="@color/accent"
                         app:ms_enableFloatingLabel="false"
                         app:ms_hint="Aina za huduma"
                         app:ms_hintColor="@color/hint_text"
                         app:ms_multiline="false"
                         app:ms_thickness="1dp"
-                        app:paddingEnd="16dp"
-                        app:paddingStart="16dp" />
+                        app:paddingEnd="14dp"
+                        app:paddingStart="14dp" />
 
                     <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/reason_for_referral"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_height="46dp"
+                        android:layout_marginRight="14dp"
                         android:layout_weight="0.5"
                         android:hint="Sababu ya Rufaa"
                         android:imeOptions="actionNext"
@@ -325,7 +325,7 @@
                         app:met_floatingLabelText="Mahali anapokaa"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -339,14 +339,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginRight="6dp"
                         android:layout_weight="1"
                         android:hint="Namba ya CBHS"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_floatingLabelText="Namba ya mteja ya community_based_hiv_service"
                         app:met_floatingLabel="normal"
                         app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -356,14 +356,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="0dp"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginRight="6dp"
                         android:layout_weight="1"
                         android:hint="Namba ya CTC"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:textColor="@color/primary_text"
                         android:textColorHint="@color/hint_text"
-                        android:textSize="14sp"
+                        android:textSize="12sp"
                         app:met_floatingLabelText="Namba ya CTC"
                         app:met_floatingLabel="normal"
                         app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -384,17 +384,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     app:ms_arrowColor="@color/accent"
-                    app:ms_arrowSize="14dp"
+                    app:ms_arrowSize="12dp"
                     app:ms_baseColor="@color/accent"
                     app:ms_enableFloatingLabel="false"
                     app:ms_hint="Jina la kliniki ya rufaa"
                     app:ms_hintColor="@color/hint_text"
                     app:ms_multiline="false"
                     app:ms_thickness="1dp"
-                    app:paddingEnd="16dp"
-                    app:paddingStart="16dp" />
+                    app:paddingEnd="14dp"
+                    app:paddingStart="14dp" />
 
 
 
@@ -406,15 +406,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="6dp"
         android:visibility="visible"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="6dp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="6dp"
         android:clipChildren="true"
-        app:cardElevation="4dp">
+        app:cardElevation="2dp">
 
         <LinearLayout
             android:id="@+id/outlayer"
@@ -430,21 +430,21 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:paddingLeft="16dp"
-                    android:layout_height="56dp"
+                    android:paddingLeft="14dp"
+                    android:layout_height="48dp"
                     android:background="#a8f5ce0b"
                     android:layout_width="match_parent"
                     android:gravity="center_vertical"
                     android:textColor="@color/text_black"
                     android:text="Chunguza Vidokezo Vifuatavyo Kwa Mteja"
                     android:layout_marginTop="0dp"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"/>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_margin="16dp"
+                android:layout_margin="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
@@ -455,7 +455,7 @@
                     android:text="Weka alama (&#x2713;) panapohusika."
                     android:textAllCaps="false"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:visibility="gone"
@@ -466,7 +466,7 @@
                     android:paddingTop="12dp"
                     android:text="Kikohozi zaidi ya wiki mbili"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:visibility="gone"
@@ -477,7 +477,7 @@
                     android:paddingTop="12dp"
                     android:text="Homa zaidi ya wiki mbili"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:visibility="gone"
@@ -488,7 +488,7 @@
                     android:paddingTop="12dp"
                     android:text="Kupungua uzito"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
 
 
@@ -501,7 +501,7 @@
                     android:paddingTop="12dp"
                     android:text="Kutokwa na jasho usiku zaidi ya wiki mbili"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
                     android:visibility="gone"
@@ -512,7 +512,7 @@
                     android:paddingTop="12dp"
                     android:text="Kukohoa makohozi yenye mchanganyiko na damu"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <CheckBox
 
@@ -524,7 +524,7 @@
                     android:paddingTop="12dp"
                     android:text="Kusitisha dawa"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -535,7 +535,7 @@
                     android:paddingTop="12dp"
                     android:text="Anatapika"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -546,7 +546,7 @@
                     android:paddingTop="12dp"
                     android:text="Anaumwa Kichwa"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -557,7 +557,7 @@
                     android:paddingTop="12dp"
                     android:text="Ana mwenza mwenye maambukizi"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -568,7 +568,7 @@
                     android:paddingTop="12dp"
                     android:text="Yupo sehemu hatarishi"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -579,7 +579,7 @@
                     android:paddingTop="12dp"
                     android:text="Hana hamu ya kula"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
                 <CheckBox
 
                     android:visibility="gone"
@@ -590,7 +590,7 @@
                     android:paddingTop="12dp"
                     android:text="Ana magonjwa nyemelezi"
                     android:textColor="@color/secondary_text"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
 
@@ -603,10 +603,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="6dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="1dp"
         app:cardElevation="4dp">
@@ -615,8 +615,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:paddingLeft="16dp"
-                android:layout_height="56dp"
+                android:paddingLeft="14dp"
+                android:layout_height="48dp"
                 android:background="@color/light_blue"
                 android:layout_width="match_parent"
                 android:gravity="center_vertical"
@@ -625,12 +625,12 @@
                 android:layout_marginTop="0dp"
                 android:textStyle="bold"/>
             <LinearLayout
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="14dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
-                android:layout_height="48dp">
+                android:layout_height="44dp">
 
                 <TextView
                     android:id="@+id/provider_name"
@@ -645,7 +645,7 @@
                     android:textColor="@color/text_black"
                     android:textStyle="bold"
                     android:textColorHint="@color/hint_text"
-                    android:textSize="14sp"/>
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/provider_support_group"
@@ -658,7 +658,7 @@
                     android:textColor="@color/text_black"
                     android:textStyle="bold"
                     android:focusable="true"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_marginLeft="16dp"
@@ -672,7 +672,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/text_black"
                     android:id="@+id/provider_number"
-                    android:textSize="14sp"/>
+                    android:textSize="12sp"/>
 
 
             </LinearLayout>

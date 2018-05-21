@@ -19,16 +19,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="14dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:textSize="18sp"
+                    android:layout_marginLeft="14dp"
+                    android:textSize="16sp"
                     android:id="@+id/patient_name_title"
                     android:textColor="@color/white"
                     android:text="@string/title_visiting" />
@@ -36,8 +36,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:textSize="18sp"
+                    android:layout_marginLeft="14dp"
+                    android:textSize="16sp"
                     android:id="@+id/patient_name"
                     android:textColor="@color/white"
                     />
@@ -47,16 +47,16 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="6dp"
                 android:background="@color/cyan_400"/>
 
             <LinearLayout
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="60dp">
+                android:layout_height="50dp">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -66,8 +66,8 @@
                         android:id="@+id/textViewReferralReason"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:layout_centerVertical="true"
                         android:text="@string/referral_reason"
                         android:textColor="@color/white"/>
@@ -78,10 +78,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:divider="@null"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="12sp"/>
 
 
                 </RelativeLayout>
@@ -89,10 +89,10 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="60dp">
+                android:layout_height="50dp">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -102,8 +102,8 @@
                         android:id="@+id/textViewReferralService"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:layout_centerVertical="true"
                         android:text="@string/referral_type"
                         android:textColor="@color/white"/>
@@ -114,10 +114,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:divider="@null"
-                        android:layout_marginLeft="40dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="14dp"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="12sp"/>
 
 
                 </RelativeLayout>
@@ -125,10 +125,10 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="60dp">
+                android:layout_height="50dp">
 
                 <RelativeLayout
                     android:layout_width="0dp"
@@ -138,8 +138,8 @@
                         android:id="@+id/textViewReferralfacility"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:layout_centerVertical="true"
                         android:text="@string/referral_facility"
                         android:textColor="@color/white"/>
@@ -150,10 +150,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:divider="@null"
-                        android:layout_marginLeft="32dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="28dp"
+                        android:layout_marginRight="14dp"
                         android:textColor="@color/white"
-                        android:textSize="14sp"/>
+                        android:textSize="12sp"/>
 
 
                 </RelativeLayout>
@@ -162,8 +162,8 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginLeft="14dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:layout_height="wrap_content">
@@ -173,27 +173,27 @@
                     android:id="@+id/spinnerReason"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:layout_weight="0.5"
                     app:ms_arrowColor="@color/accent"
-                    app:ms_arrowSize="14dp"
+                    app:ms_arrowSize="12dp"
                     app:ms_baseColor="@color/accent"
                     app:ms_enableFloatingLabel="false"
                     app:ms_hint="@string/hint_missing_reasons"
                     app:ms_hintColor="@color/hint_text"
                     app:ms_multiline="false"
                     app:ms_thickness="1dp"
-                    app:paddingEnd="16dp"
-                    app:paddingStart="16dp" />
+                    app:paddingEnd="14dp"
+                    app:paddingStart="14dp" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="14dp"
                 android:background="@color/cyan_400"/>
 
 
@@ -201,33 +201,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="4dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:background="@color/cyan_900"
                 android:paddingBottom="4dp">
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_width="110dp"
+                    android:layout_height="35dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:id="@+id/tuma_button"
                     android:background="@drawable/border_four"
                     android:text="@string/button_save"
-                    android:textSize="14sp"
-                    android:layout_marginTop="32dp"/>
+                    android:textSize="12sp"
+                    android:layout_marginTop="28dp"/>
 
                 <Button
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
+                    android:layout_width="110dp"
+                    android:layout_height="35dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginRight="14dp"
                     android:layout_toLeftOf="@id/tuma_button"
                     android:id="@+id/cancel_button"
                     android:background="@drawable/border_four"
                     android:text="@string/button_delete"
-                    android:textSize="14sp"
-                    android:layout_marginTop="32dp"/>
+                    android:textSize="12sp"
+                    android:layout_marginTop="30dp"/>
 
             </RelativeLayout>
 

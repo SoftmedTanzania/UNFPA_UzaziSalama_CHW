@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="68dp"
             android:background="@color/card_separator"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -23,11 +23,11 @@
                 android:id="@+id/spin_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_weight="0.5"
                 app:ms_arrowColor="@color/accent"
-                app:ms_arrowSize="14dp"
+                app:ms_arrowSize="12dp"
                 android:visibility="gone"
                 app:ms_baseColor="@color/accent"
                 app:ms_enableFloatingLabel="false"
@@ -35,8 +35,8 @@
                 app:ms_hintColor="@color/hint_text"
                 app:ms_multiline="false"
                 app:ms_thickness="1dp"
-                app:paddingEnd="16dp"
-                app:paddingStart="16dp" />
+                app:paddingEnd="14dp"
+                app:paddingStart="14dp" />
 
 
             <EditText
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
                 android:drawableRight="@drawable/ic_person_black_24dp"
                 android:hint="@string/client_firstname"
@@ -52,14 +52,14 @@
                 android:paddingRight="4dp"
                 android:textColor="@color/card_title_text"
                 android:textColorHint="@color/card_grid_tex"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/client_last_name_et"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
                 android:drawableRight="@drawable/ic_person_black_24dp"
                 android:hint="@string/client_surname"
@@ -67,14 +67,14 @@
                 android:paddingRight="4dp"
                 android:textColor="@color/card_title_text"
                 android:textColorHint="@color/card_grid_tex"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/from_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
                 android:drawableRight="@drawable/ic_date_range_black_24dp"
                 android:focusable="false"
@@ -84,14 +84,14 @@
                 android:paddingRight="4dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/card_grid_tex"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/to_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
                 android:layout_weight="1"
                 android:drawableRight="@drawable/ic_date_range_black_24dp"
                 android:focusable="false"
@@ -99,13 +99,13 @@
                 android:hint="@string/to_date"
                 android:textColor="@color/black"
                 android:textColorHint="@color/card_grid_tex"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
             <Button
                 android:id="@+id/filter_button"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
+                android:layout_height="44dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="14dp"
                 android:text="@string/button_search" />
 
         </LinearLayout>
@@ -115,10 +115,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -133,10 +133,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/client_name"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
@@ -152,7 +152,7 @@
                     android:layout_centerVertical="true"
                     android:text="@string/referral_reason"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
 
             </RelativeLayout>
@@ -167,10 +167,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/referral_date"
                     android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 
@@ -186,8 +186,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:gravity="center"
-                    android:paddingBottom="8dp"
-                    android:paddingTop="8dp"
+                    android:paddingBottom="6dp"
+                    android:paddingTop="6dp"
                     android:text="@string/referral_status"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -199,8 +199,8 @@
                 android:id="@+id/status_color"
                 android:layout_width="4dp"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp" />
 
 
         </LinearLayout>

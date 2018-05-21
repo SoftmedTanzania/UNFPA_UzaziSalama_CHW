@@ -21,9 +21,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_centerVertical="true"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="14dp"
                 android:id="@+id/client_name"
                 android:textColor="@color/black"
                 android:text="@string/client_name"/>
@@ -38,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textColor="@color/black"
                 android:id="@+id/referral_reasons"
                 android:text="@string/referral_reason"
@@ -55,8 +55,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:layout_marginTop="16dp"
+                android:textSize="12sp"
+                android:layout_marginTop="14dp"
                 android:id="@+id/ref_date"
                 android:layout_centerVertical="true"
                 android:textColor="@color/black"
@@ -80,12 +80,12 @@
                 android:gravity="center"
                 android:text="@string/referral_status"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
 
         </RelativeLayout>
         <View
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
             android:layout_width="4dp"
             android:layout_height="match_parent"
             android:id="@+id/status_color"/>

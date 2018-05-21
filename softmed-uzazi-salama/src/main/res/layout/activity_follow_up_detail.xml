@@ -10,7 +10,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="260dp"
         android:background="#f5f5f5"
         android:fitsSystemWindows="true"
         android:visibility="visible">
@@ -67,7 +67,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"
+                android:layout_margin="14dp"
                 android:orientation="vertical"
 
                 app:layout_collapseMode="pin">
@@ -89,9 +89,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="14dp"
                         android:layout_marginTop="?attr/actionBarSize"
                         android:src="@drawable/ic_calendar_today"
                         android:tint="@color/colorPrimary" />
@@ -99,8 +99,8 @@
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:background="@color/colorPrimary" />
 
                     <TextView
@@ -110,11 +110,11 @@
                         android:layout_marginTop="?attr/actionBarSize"
                         android:layout_weight="2"
                         android:gravity="start"
-                        android:paddingBottom="16dp"
+                        android:paddingBottom="14dp"
                         android:paddingTop="4dp"
                         android:text="11 Jan 2222"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -123,17 +123,17 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="14dp"
                         android:src="@drawable/ic_account_circle"
                         android:tint="@color/colorPrimary" />
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:background="@color/colorPrimary" />
 
                     <TextView
@@ -142,11 +142,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="start"
-                        android:paddingBottom="16dp"
+                        android:paddingBottom="14dp"
                         android:paddingTop="8dp"
                         android:text="Jane Doe"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
 
@@ -156,17 +156,17 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="14dp"
                         android:src="@drawable/ic_card"
                         android:tint="@color/colorPrimary" />
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:background="@color/colorPrimary" />
 
                     <TextView
@@ -175,11 +175,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="start"
-                        android:paddingBottom="16dp"
-                        android:paddingTop="8dp"
+                        android:paddingBottom="14dp"
+                        android:paddingTop="6dp"
                         android:text="ID Number"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -188,17 +188,17 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="14dp"
                         android:src="@drawable/ic_local_mall"
                         android:tint="@color/colorPrimary" />
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginRight="14dp"
                         android:background="@color/colorPrimary" />
 
                     <TextView
@@ -207,11 +207,11 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="start"
-                        android:paddingBottom="16dp"
-                        android:paddingTop="8dp"
+                        android:paddingBottom="14dp"
+                        android:paddingTop="6dp"
                         android:text="Facility"
                         android:textColor="@color/primary_text"
-                        android:textSize="14sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -233,7 +233,7 @@
                     android:gravity="center_vertical"
                     android:text="Mahudhurio Ya Marudio"
                     android:textColor="@android:color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>

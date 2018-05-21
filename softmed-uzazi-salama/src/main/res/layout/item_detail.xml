@@ -22,9 +22,9 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/icon"
-            android:layout_marginTop="32dp"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
+            android:layout_marginTop="28dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"
             android:src="@drawable/user_icon"/>
@@ -33,10 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/icon"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#398FE5"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:layout_centerHorizontal="true"/>
         <LinearLayout
             android:id="@+id/other_details"
@@ -48,19 +48,19 @@
                 android:gravity="right"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="#000"
                 android:layout_height="wrap_content"
                 />
             <View
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
                 android:layout_width="1dp"
-                android:layout_height="16dp"
+                android:layout_height="14dp"
                 android:background="#000"/>
             <TextView
                 android:id="@+id/gender"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="#000"
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -73,11 +73,11 @@
             android:layout_below="@id/other_details"
             android:id="@+id/demographic_details"
             android:layout_width="match_parent"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             card_view:cardCornerRadius="0dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,30 +89,30 @@
                     android:orientation="vertical"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/residence_icon"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_home_black_24dp"/>
                     <TextView
                         android:layout_alignTop="@id/residence_icon"
                         android:layout_toRightOf="@id/residence_icon"
                         android:layout_alignBottom="@id/residence_icon"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:gravity="center_vertical"
-                        android:textSize="13sp"
-                        android:layout_marginLeft="16dp"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="14dp"
                         android:textColor="#000"
                         android:text="@string/client_address"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/contacts_icon"
                         android:layout_below="@id/residence_icon"
-                        android:layout_width="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_phone_black_24dp"/>
                     <TextView
                         android:layout_toRightOf="@id/contacts_icon"
@@ -122,16 +122,16 @@
                         android:gravity="center_vertical"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:layout_marginLeft="16dp"
-                        android:textSize="13sp"
+                        android:layout_marginLeft="14dp"
+                        android:textSize="10sp"
                         android:text="@string/client_phone"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/sponsors_icon"
                         android:layout_below="@id/contacts_icon"
-                        android:layout_width="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_width="14dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_people_black_24dp"/>
                     <TextView
@@ -140,10 +140,10 @@
                         android:layout_alignBottom="@id/sponsors_icon"
                         android:layout_width="wrap_content"
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:text="@string/client_helper"/>
                 </RelativeLayout>
 
@@ -155,29 +155,29 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:id="@+id/residence"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="28dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                     <TextView
                         android:id="@+id/contacts"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                     <TextView
                         android:id="@+id/sponsor"
                         android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                 </LinearLayout>
@@ -188,11 +188,11 @@
             android:layout_below="@id/demographic_details"
             android:id="@+id/visits_details"
             android:layout_width="match_parent"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             card_view:cardCornerRadius="0dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,30 +204,30 @@
                     android:orientation="vertical"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/refered_icon"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_local_hospital_black_24dp"/>
                     <TextView
                         android:layout_alignTop="@id/refered_icon"
                         android:layout_toRightOf="@id/refered_icon"
                         android:layout_alignBottom="@id/refered_icon"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:gravity="center_vertical"
-                        android:textSize="13sp"
-                        android:layout_marginLeft="16dp"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="14dp"
                         android:textColor="#000"
                         android:text="@string/referral_facility"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/visits_icon"
                         android:layout_below="@id/refered_icon"
-                        android:layout_width="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_beenhere_black_24dp"/>
                     <TextView
                         android:layout_toRightOf="@id/visits_icon"
@@ -237,17 +237,17 @@
                         android:gravity="center_vertical"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:layout_marginLeft="16dp"
-                        android:textSize="13sp"
+                        android:layout_marginLeft="14dp"
+                        android:textSize="10sp"
                         android:text="@string/visits_number"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/reasons_icon"
                         android:layout_below="@id/visits_icon"
-                        android:layout_width="16dp"
+                        android:layout_width="14dp"
                         android:layout_marginTop="8dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="6dp"
                         android:src="@drawable/ic_info_black_24dp"/>
                     <TextView
                         android:layout_toRightOf="@id/reasons_icon"
@@ -255,10 +255,10 @@
                         android:layout_alignBottom="@id/reasons_icon"
                         android:layout_width="wrap_content"
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:text="@string/referral_reason"/>
                 </RelativeLayout>
 
@@ -270,28 +270,28 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:id="@+id/refered"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                     <TextView
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                        />
                     <TextView
                         android:id="@+id/followUp_reason"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                 </LinearLayout>
@@ -301,11 +301,11 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_below="@id/visits_details"
             android:layout_width="match_parent"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="14dp"
             card_view:cardCornerRadius="0dp">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -317,30 +317,30 @@
                     android:orientation="vertical"
                     android:layout_height="match_parent">
                     <ImageView
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/date_icon"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_date_range_black_24dp"/>
                     <TextView
                         android:layout_alignTop="@id/date_icon"
                         android:layout_toRightOf="@id/date_icon"
                         android:layout_alignBottom="@id/date_icon"
                         android:layout_width="wrap_content"
-                        android:layout_height="20dp"
+                        android:layout_height="18dp"
                         android:gravity="center_vertical"
-                        android:textSize="13sp"
-                        android:layout_marginLeft="16dp"
+                        android:textSize="10sp"
+                        android:layout_marginLeft="14dp"
                         android:textColor="#000"
                         android:text="@string/referral_date"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/chw_id_icon"
                         android:layout_below="@id/date_icon"
-                        android:layout_width="16dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_credit_card_black_24dp"/>
                     <TextView
                         android:layout_toRightOf="@id/chw_id_icon"
@@ -350,17 +350,17 @@
                         android:gravity="center_vertical"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:layout_marginLeft="16dp"
-                        android:textSize="13sp"
+                        android:layout_marginLeft="14dp"
+                        android:textSize="10sp"
                         android:text="@string/referral_feedback"/>
                     <ImageView
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:id="@+id/note_icon"
                         android:layout_below="@id/chw_id_icon"
-                        android:layout_width="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_width="14dp"
+                        android:layout_marginTop="6dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="6dp"
                         android:src="@drawable/ic_note_black_24dp"/>
                     <TextView
                         android:layout_toRightOf="@id/note_icon"
@@ -368,10 +368,10 @@
                         android:layout_alignBottom="@id/note_icon"
                         android:layout_width="wrap_content"
                         android:gravity="center_vertical"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="14dp"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:text="@string/referral_note"/>
                 </RelativeLayout>
 
@@ -383,29 +383,29 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:id="@+id/refered_date"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                     <TextView
                         android:id="@+id/feedback"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                     <TextView
                         android:id="@+id/note"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginLeft="32dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="13sp"
+                        android:textSize="10sp"
                         android:textColor="@color/client_list_header_text_color"
                         />
                 </LinearLayout>

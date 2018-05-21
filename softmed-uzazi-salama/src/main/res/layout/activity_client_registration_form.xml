@@ -40,7 +40,7 @@
                             android:layout_marginLeft="4dp"
                             android:text="@string/app_name_htmr"
                             android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
 
                     </RelativeLayout>
 
@@ -67,11 +67,11 @@
                         xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="56dp"
-                        android:layout_marginLeft="72dp"
-                        android:layout_marginRight="72dp"
-                        android:layout_marginTop="46dp"
-                        android:paddingBottom="16dp">
+                        android:layout_marginBottom="54dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        android:layout_marginTop="44dp"
+                        android:paddingBottom="14dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -89,22 +89,22 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginLeft="32dp"
-                                    android:layout_marginTop="32dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="30dp"
                                     android:text="@string/page_title"
                                     android:textColor="@color/black"
-                                    android:textSize="42sp" />
+                                    android:textSize="40sp" />
 
                                 <TextView
                                     android:id="@+id/cbhs_number_title"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/client_name"
-                                    android:layout_marginLeft="32dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="14dp"
                                     android:text="@string/title_cbhs_number"
                                     android:textColor="@color/card_title_text"
-                                    android:textSize="14sp"
+                                    android:textSize="12sp"
                                     android:visibility="invisible" />
 
                                 <TextView
@@ -112,11 +112,11 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/client_name"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginLeft="14dp"
+                                    android:layout_marginTop="14dp"
                                     android:layout_toRightOf="@+id/cbhs_number_title"
                                     android:textColor="@color/card_title_text"
-                                    android:textSize="14sp"
+                                    android:textSize="12sp"
                                     android:visibility="invisible" />
 
                             </RelativeLayout>
@@ -127,14 +127,14 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/card_separator_third"
                                 android:orientation="horizontal"
-                                android:paddingLeft="32dp"
-                                android:paddingRight="32dp">
+                                android:paddingLeft="30dp"
+                                android:paddingRight="30dp">
                                 <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginRight="14dp"
                                     android:layout_weight="0.4"
-                                    android:paddingBottom="16dp">
+                                    android:paddingBottom="14dp">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -154,7 +154,7 @@
                                             android:inputType="textCapWords|textPersonName"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Jina la kwanza"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -163,7 +163,7 @@
                                             android:id="@+id/editTextmName"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="16dp"
+                                            android:layout_marginLeft="14dp"
                                             android:layout_weight="0.2"
                                             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                                             android:hint="@string/client_middlename"
@@ -171,7 +171,7 @@
                                             android:inputType="textCapWords|textPersonName"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="16sp"
+                                            android:textSize="14sp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Jina la kati"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -184,9 +184,9 @@
                                 <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginLeft="14dp"
                                     android:layout_weight="0.4"
-                                    android:paddingBottom="16dp">
+                                    android:paddingBottom="14dp">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -203,7 +203,7 @@
                                             android:inputType="textCapWords|textPersonName"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="16sp"
+                                            android:textSize="14sp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Jina la mwisho"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -212,7 +212,7 @@
                                             android:id="@+id/edittextPhone"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="16dp"
+                                            android:layout_marginLeft="14dp"
                                             android:layout_weight="1"
                                             android:hint="@string/client_phone"
                                             android:imeOptions="actionNext"
@@ -237,44 +237,44 @@
                                 android:layout_height="wrap_content"
                                 android:background="@color/card_separator_third"
                                 android:orientation="horizontal"
-                                android:paddingLeft="32dp"
-                                android:paddingRight="32dp">
+                                android:paddingLeft="30dp"
+                                android:paddingRight="30dp">
 
                                 <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginRight="14dp"
                                     android:layout_weight="0.5"
-                                    android:paddingBottom="16dp">
+                                    android:paddingBottom="14dp">
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp">
+                                        android:layout_marginTop="6dp">
 
                                         <fr.ganfra.materialspinner.MaterialSpinner
                                             android:id="@+id/spinnerGender"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginRight="16dp"
+                                            android:layout_marginRight="14dp"
                                             android:layout_weight="0.5"
                                             app:ms_arrowColor="@color/accent"
-                                            app:ms_arrowSize="14dp"
+                                            app:ms_arrowSize="12dp"
                                             app:ms_baseColor="@color/accent"
                                             app:ms_enableFloatingLabel="false"
                                             app:ms_hint="@string/client_sex"
                                             app:ms_hintColor="@color/hint_text"
                                             app:ms_multiline="false"
                                             app:ms_thickness="1dp"
-                                            app:paddingEnd="16dp"
-                                            app:paddingStart="16dp" />
+                                            app:paddingEnd="14dp"
+                                            app:paddingStart="14dp" />
 
 
                                         <com.rengwuxian.materialedittext.MaterialEditText
                                             android:id="@+id/reg_dob"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="16dp"
+                                            android:layout_marginLeft="14dp"
                                             android:layout_weight="0.5"
                                             android:clickable="true"
                                             android:editable="false"
@@ -282,7 +282,7 @@
                                             android:hint="@string/client_birthday"
                                             android:inputType="date"
                                             android:textColor="@color/text_black"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Date of birth"
                                             app:met_floatingLabelTextColor="@color/colorPrimary"
@@ -295,9 +295,9 @@
                                 <RelativeLayout
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginLeft="14dp"
                                     android:layout_weight="0.5"
-                                    android:paddingBottom="16dp">
+                                    android:paddingBottom="14dp">
 
 
                                     <LinearLayout
@@ -308,13 +308,13 @@
                                             android:id="@+id/editTextKijiji"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="8dp"
+                                            android:layout_marginTop="6dp"
                                             android:layout_weight="1"
                                             android:hint="@string/client_address"
                                             android:imeOptions="actionNext"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabelText="Mahali anapokaa"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
 
@@ -323,13 +323,13 @@
                                             android:id="@+id/editTextVillageLeader"
                                             android:layout_width="0dp"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginLeft="16dp"
-                                            android:layout_marginTop="8dp"
+                                            android:layout_marginLeft="14dp"
+                                            android:layout_marginTop="6dp"
                                             android:layout_weight="1"
                                             android:hint="@string/client_veo"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabelText="Mahali anapokaa"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
                                     </LinearLayout>
@@ -350,19 +350,19 @@
                                 android:id="@+id/referer_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="32dp"
-                                android:layout_marginTop="8dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="6dp"
                                 android:text="@string/referral_information"
                                 android:textColor="@color/card_title_text"
-                                android:textSize="14sp" />
+                                android:textSize="12sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="16dp"
+                                android:layout_marginLeft="14dp"
                                 android:background="@color/white"
                                 android:orientation="horizontal"
-                                android:padding="16dp">
+                                android:padding="14dp">
 
                                 <RelativeLayout
                                     android:layout_width="0dp"
@@ -374,9 +374,9 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         app:ms_arrowColor="@color/accent"
-                                        app:ms_arrowSize="14dp"
+                                        app:ms_arrowSize="12dp"
                                         app:ms_baseColor="@color/accent"
-                                        android:layout_marginRight="16dp"
+                                        android:layout_marginRight="14dp"
                                         app:ms_enableFloatingLabel="false"
                                         app:ms_hint="@string/referral_services"
                                         app:ms_hintColor="@color/black_translucent"
@@ -386,16 +386,16 @@
 
                                     <TextView
 
-                                        android:layout_marginRight="16dp"
+                                        android:layout_marginRight="14dp"
                                         android:id="@+id/facility_titleview"
                                         android:layout_below="@+id/spinnerService"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:text="@string/visit_facility"/>
                                     <AutoCompleteTextView
-                                        android:textSize="14sp"
-                                        android:layout_marginRight="16dp"
-                                        android:ems="10"
+                                        android:textSize="12sp"
+                                        android:layout_marginRight="14dp"
+                                        android:ems="8"
                                         android:layout_below="@+id/facility_titleview"
                                         android:id="@+id/autocomplete_facility"
                                         android:layout_width="match_parent"
@@ -405,9 +405,9 @@
                                 <View
                                     android:layout_width="1dp"
                                     android:layout_height="match_parent"
-                                    android:layout_marginBottom="16dp"
-                                    android:layout_marginRight="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="14dp"
+                                    android:layout_marginRight="14dp"
+                                    android:layout_marginTop="14dp"
                                     android:background="@color/card_separator" />
 
                                 <RelativeLayout
@@ -419,10 +419,10 @@
                                         android:id="@+id/clinical_information_title"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
+                                        android:layout_marginTop="6dp"
                                         android:text="@string/other_info"
                                         android:textColor="@color/card_title_text"
-                                        android:textSize="14sp" />
+                                        android:textSize="12sp" />
 
                                     <LinearLayout
                                         android:layout_below="@id/clinical_information_title"
@@ -433,15 +433,15 @@
                                         <com.rengwuxian.materialedittext.MaterialEditText
                                             android:id="@+id/reason_for_referral"
                                             android:layout_width="match_parent"
-                                            android:layout_height="48dp"
-                                            android:layout_marginTop="16dp"
-                                            android:layout_marginRight="16dp"
+                                            android:layout_height="44dp"
+                                            android:layout_marginTop="14dp"
+                                            android:layout_marginRight="14dp"
                                             android:layout_weight="0.5"
                                             android:hint="@string/referral_reason"
                                             android:imeOptions="actionNext"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabelText="Mahali anapokaa"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
 
@@ -455,7 +455,7 @@
                                             android:inputType="text"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/black_translucent"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Namba ya mteja ya community_based_hiv_service"
                                             app:met_floatingLabelTextColor="@color/colorPrimary" />
@@ -464,13 +464,13 @@
                                             android:id="@+id/editTextOthers"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginRight="16dp"
+                                            android:layout_marginRight="14dp"
                                             android:hint="@string/title_ctc_number"
                                             android:imeOptions="actionNext"
                                             android:inputType="text"
                                             android:textColor="@color/primary_text"
                                             android:textColorHint="@color/hint_text"
-                                            android:textSize="14sp"
+                                            android:textSize="12sp"
                                             android:layout_marginBottom="16dp"
                                             app:met_floatingLabel="normal"
                                             app:met_floatingLabelText="Namba ya CTC"
@@ -485,9 +485,9 @@
                                 <View
                                     android:layout_width="1dp"
                                     android:layout_height="match_parent"
-                                    android:layout_marginBottom="16dp"
-                                    android:layout_marginRight="16dp"
-                                    android:layout_marginTop="16dp"
+                                    android:layout_marginBottom="14dp"
+                                    android:layout_marginRight="14dp"
+                                    android:layout_marginTop="14dp"
                                     android:background="@color/card_separator" />
 
                                 <RelativeLayout
@@ -501,14 +501,14 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/danger_signs"
                                         android:textColor="@color/card_title_text"
-                                        android:textSize="14sp" />
+                                        android:textSize="12sp" />
 
                                     <LinearLayout
                                         android:id="@+id/check_add_layout"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_below="@id/flags_title"
-                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginBottom="14dp"
                                         android:orientation="vertical">
 
 
@@ -522,8 +522,8 @@
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
-                                android:layout_marginLeft="16dp"
-                                android:layout_marginRight="16dp"
+                                android:layout_marginLeft="14dp"
+                                android:layout_marginRight="14dp"
                                 android:background="@color/card_separator" />
 
 
@@ -533,11 +533,11 @@
 
                                 <Button
                                     android:id="@+id/referal_button"
-                                    android:layout_width="200dp"
-                                    android:layout_height="60dp"
+                                    android:layout_width="150dp"
+                                    android:layout_height="40dp"
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginRight="16dp"
+                                    android:layout_marginRight="14dp"
                                     android:text="@string/button_refer_client"
                                     android:textColor="@color/card_title_text" />
 
