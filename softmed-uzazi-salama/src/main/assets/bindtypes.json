@@ -123,7 +123,7 @@
       ]
     },
     {
-      "name": "followup_client",
+      "name": "anc_followup_client",
       "columns": [
         {
           "name": "first_name"
@@ -135,13 +135,20 @@
           "name": "surname"
         },
         {
-          "name": "community_based_hiv_service"
+          "name": "date_of_birth"
         },
         {
-          "name": "ctc_number"
+          "name": "edd"
+        },{
+          "name": "spouse_name"
+        },{
+          "name": "map_cue"
         },
         {
           "name": "visit_date"
+        },
+        {
+          "name": "village"
         },
         {
           "name": "facility_id"
@@ -150,7 +157,7 @@
           "name": "referral_reason"
         },
         {
-          "name": "gender"
+          "name": "comment"
         },
         {
           "name": "phone_number"
@@ -172,6 +179,8 @@
         },
         {
           "name": "is_valid"
+        },{
+          "name": "service_provider_uiid"
         },
         {
           "name": "referral_status"

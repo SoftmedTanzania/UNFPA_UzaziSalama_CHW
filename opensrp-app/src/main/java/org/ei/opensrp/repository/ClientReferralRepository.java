@@ -42,6 +42,8 @@ public class ClientReferralRepository extends DrishtiRepository {
             "other_notes VARCHAR, " +
             "referral_feedback VARCHAR, " +
             "service_provider_uuid VARCHAR, " +
+            "details VARCHAR, " +
+            "referral_uuid VARCHAR, " +
             "is_valid VARCHAR)";
 
 
@@ -68,6 +70,7 @@ public class ClientReferralRepository extends DrishtiRepository {
     public static final String FACILITY_ID = "facility_id";
     public static final String REFERRAL_REASON = "referral_reason";
     public static final String REFERRAL_STATUS = "referral_status";
+    public static final String REFERRAL_UUID = "referral_uuid";
     public static final String OTHER_NOTES = "other_notes";
     public static final String REFERRAL_FEEDBACK = "referral_feedback";
     public static final String SERVICE_PROVIDER_UUID = "service_provider_uuid";
@@ -98,6 +101,7 @@ public class ClientReferralRepository extends DrishtiRepository {
             OTHER_NOTES,
             REFERRAL_STATUS,
             SERVICE_PROVIDER_UUID,
+            REFERRAL_UUID,
             IS_VALID};
 
     @Override
@@ -277,6 +281,7 @@ public class ClientReferralRepository extends DrishtiRepository {
             clientReferral.setReferral_feedback(cursor.getString(cursor.getColumnIndex(REFERRAL_FEEDBACK)));
             clientReferral.setOther_notes(cursor.getString(cursor.getColumnIndex(OTHER_NOTES)));
             clientReferral.setReferral_status(cursor.getInt(cursor.getColumnIndex(REFERRAL_STATUS)));
+            clientReferral.setReferral_uuid(cursor.getString(cursor.getColumnIndex(REFERRAL_UUID)));
             clientReferral.setService_provider_uuid(cursor.getString(cursor.getColumnIndex(SERVICE_PROVIDER_UUID)));
             clientReferral.setIs_valid(cursor.getInt(cursor.getColumnIndex(IS_VALID))==1);
 

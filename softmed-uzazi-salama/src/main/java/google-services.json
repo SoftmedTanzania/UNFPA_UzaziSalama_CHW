@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "830479277284",
-    "firebase_url": "https://htm-referrals.firebaseio.com",
-    "project_id": "htm-referrals",
-    "storage_bucket": "htm-referrals.appspot.com"
+    "project_number": "43821660533",
+    "firebase_url": "https://uzazi-salama.firebaseio.com",
+    "project_id": "uzazi-salama",
+    "storage_bucket": "uzazi-salama.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:830479277284:android:b82628c29e5b6012",
+        "mobilesdk_app_id": "1:43821660533:android:4c5e16a3e3ff8bc5",
         "android_client_info": {
           "package_name": "com.softmed.uzazi_salama"
         }
       },
       "oauth_client": [
         {
-          "client_id": "830479277284-cv3n5lfstti6n7ogpn88847t2i35f05o.apps.googleusercontent.com",
+          "client_id": "43821660533-f5ia2t37gse1seqrdqulqvflhq7e399t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softmed.uzazi_salama",
+            "certificate_hash": "c9e404554c01fe5d083776d13e7ff5cf74bc9853"
+          }
+        },
+        {
+          "client_id": "43821660533-itdlv1t9ag71rb6sur8rajldifk67rup.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2HBe_Sdyie5sCoaY0SCM1RPa0ssYtYgs"
+          "current_key": "AIzaSyAno4brntu6y7E3W_HSIda8tQeTEMjEa9I"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43821660533-itdlv1t9ag71rb6sur8rajldifk67rup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
