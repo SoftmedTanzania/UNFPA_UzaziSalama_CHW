@@ -5,14 +5,11 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
-import com.google.gson.Gson;
-
 import org.ei.opensrp.commonregistry.AllCommonsRepository;
 import org.ei.opensrp.commonregistry.CommonFtsObject;
 import org.ei.opensrp.commonregistry.CommonPersonObjectClients;
 import org.ei.opensrp.commonregistry.CommonRepository;
 import org.ei.opensrp.commonregistry.CommonRepositoryInformationHolder;
-import org.ei.opensrp.domain.Indicator;
 import org.ei.opensrp.repository.AlertRepository;
 import org.ei.opensrp.repository.AllAlerts;
 import org.ei.opensrp.repository.AllBeneficiaries;
@@ -32,7 +29,7 @@ import org.ei.opensrp.repository.FormsVersionRepository;
 import org.ei.opensrp.repository.ImageRepository;
 import org.ei.opensrp.repository.IndicatorRepository;
 import org.ei.opensrp.repository.MotherRepository;
-import org.ei.opensrp.repository.ReferralServiceRepository;
+import org.ei.opensrp.repository.ClientFollowupRepository;
 import org.ei.opensrp.repository.ReportRepository;
 import org.ei.opensrp.repository.Repository;
 import org.ei.opensrp.repository.ServiceProvidedRepository;
@@ -137,7 +134,7 @@ public class Context {
     private AllServicesProvided allServicesProvided;
     private AllCommonsRepository allCommonPersonObjectsRepository;
     private FacilityRepository facilityRepository;
-    private ReferralServiceRepository referralServiceRepository;
+    private ClientFollowupRepository clientFollowupRepository;
     private ClientReferralRepository clientReferralRepository;
     private static ImageRepository imageRepository;
 
@@ -517,7 +514,7 @@ public class Context {
             drishtireposotorylist.add(motherRepository());
             drishtireposotorylist.add(facilityRepository());
             drishtireposotorylist.add(clientReferralRepository());
-            drishtireposotorylist.add(referralServiceRepository());
+            drishtireposotorylist.add(clientFollowupRepository());
             drishtireposotorylist.add(reportRepository());
             drishtireposotorylist.add(formDataRepository());
             drishtireposotorylist.add(serviceProvidedRepository());
@@ -635,11 +632,11 @@ public class Context {
         }
         return motherRepository;
     }
-    private ReferralServiceRepository referralServiceRepository() {
-        if (referralServiceRepository == null) {
-            referralServiceRepository = new ReferralServiceRepository();
+    public ClientFollowupRepository clientFollowupRepository() {
+        if (clientFollowupRepository == null) {
+            clientFollowupRepository = new ClientFollowupRepository();
         }
-        return referralServiceRepository;
+        return clientFollowupRepository;
     }
 
     private FacilityRepository facilityRepository() {

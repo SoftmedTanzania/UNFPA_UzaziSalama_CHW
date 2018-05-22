@@ -48,7 +48,6 @@ import com.softmed.uzazi_salama.util.SmallDiagonalCutPathDrawable;
 import org.ei.opensrp.event.Listener;
 import org.ei.opensrp.repository.AllSharedPreferences;
 import org.ei.opensrp.repository.FacilityRepository;
-import org.ei.opensrp.repository.ReferralServiceRepository;
 import org.ei.opensrp.sync.DrishtiSyncScheduler;
 import org.ei.opensrp.util.Log;
 import org.ei.opensrp.view.BackgroundAction;
@@ -85,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private FacilityService facilityService;
     private List<ReferralServiceDataModel> serviceData;
-    private ReferralServiceRepository serviceRepository;
     private FacilityRepository facilityRepository;
     private CommonRepository commonRepository;
     public static final String ENGLISH_LOCALE = "en";

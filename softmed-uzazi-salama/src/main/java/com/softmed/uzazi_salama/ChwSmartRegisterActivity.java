@@ -39,6 +39,7 @@ import org.ei.opensrp.Context;
 import org.ei.opensrp.adapter.SmartRegisterPaginatedAdapter;
 import org.ei.opensrp.commonregistry.CommonPersonObject;
 import org.ei.opensrp.commonregistry.CommonRepository;
+import org.ei.opensrp.domain.ClientFollowup;
 import org.ei.opensrp.domain.ClientReferral;
 import org.ei.opensrp.domain.SyncStatus;
 import org.ei.opensrp.domain.form.FormData;
@@ -308,7 +309,7 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
         return commonPersonObjectList.get(0).getColumnmaps().get("name");
     }
 
-    public void showFollowUpFormDialog(final ClientFollowupPersonObject clientperson) {
+    public void showFollowUpFormDialog(final ClientFollowup clientperson) {
 
         String gsonClient = Utils.convertStandardJSONString(clientperson.getDetails());
         Log.d(TAG, "gsonMom = " + gsonClient);

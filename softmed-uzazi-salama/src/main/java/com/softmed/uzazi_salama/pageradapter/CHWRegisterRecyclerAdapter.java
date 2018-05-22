@@ -20,6 +20,8 @@ import com.softmed.uzazi_salama.Fragments.ClientDetailFragment;
 import com.softmed.uzazi_salama.R;
 import com.softmed.uzazi_salama.Repository.ClientFollowupPersonObject;
 
+import org.ei.opensrp.domain.ClientFollowup;
+
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
@@ -33,11 +35,11 @@ public class CHWRegisterRecyclerAdapter extends
         RecyclerView.Adapter<CHWRegisterRecyclerAdapter.ViewHolder> {
 
     private static String TAG = CHWRegisterRecyclerAdapter.class.getSimpleName();
-    private List<ClientFollowupPersonObject> clients;
+    private List<ClientFollowup> clients;
     private Context mContext;
     private boolean mTwoPane=true;
 
-    public CHWRegisterRecyclerAdapter(Context context, List<ClientFollowupPersonObject> clients) {
+    public CHWRegisterRecyclerAdapter(Context context, List<ClientFollowup> clients) {
         this.clients = clients;
         this.mContext = context;
 
@@ -62,7 +64,7 @@ public class CHWRegisterRecyclerAdapter extends
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
-        final ClientFollowupPersonObject client = clients.get(position);
+        final ClientFollowup client = clients.get(position);
 
         Log.d(TAG,"follow up adapter : "+new Gson().toJson(clients));
 
@@ -75,10 +77,6 @@ public class CHWRegisterRecyclerAdapter extends
         phoneNumberTextView.setText(client.getPhone_number());
         viewHolder.nameTextView.setText(client.getFirst_name()+" " + client.getMiddle_name()+", "+client.getSurname());
 
-        if(client.getCommunity_based_hiv_service()!=null) {
-            if(!client.getCommunity_based_hiv_service().equals(""))
-                CBHS.setText("CBHS : " + client.getCommunity_based_hiv_service());
-        }
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

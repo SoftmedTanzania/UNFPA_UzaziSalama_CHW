@@ -25,13 +25,10 @@ import org.ei.opensrp.commonregistry.CommonFtsObject;
 import org.ei.opensrp.commonregistry.CommonRepository;
 import org.ei.opensrp.domain.ClientReferral;
 import org.ei.opensrp.domain.Facility;
-import org.ei.opensrp.domain.Indicator;
-import org.ei.opensrp.domain.ReferralServiceDataModel;
 import org.ei.opensrp.domain.Response;
 import org.ei.opensrp.repository.ClientReferralRepository;
 import org.ei.opensrp.repository.FacilityRepository;
-import org.ei.opensrp.repository.IndicatorRepository;
-import org.ei.opensrp.repository.ReferralServiceRepository;
+import org.ei.opensrp.repository.ClientFollowupRepository;
 import org.ei.opensrp.sync.DrishtiSyncScheduler;
 import org.ei.opensrp.view.activity.DrishtiApplication;
 import org.ei.opensrp.view.activity.SecuredActivity;
@@ -51,7 +48,6 @@ import io.fabric.sdk.android.Fabric;
 import static org.ei.opensrp.AllConstants.DRISHTI_BASE_PATH;
 import static org.ei.opensrp.AllConstants.GSM_SERVER_URL;
 import static org.ei.opensrp.AllConstants.OPENSRP_FACILITY_URL_PATH;
-import static org.ei.opensrp.AllConstants.OPENSRP_REFERRAL_SERVICES_URL_PATH;
 import static org.ei.opensrp.util.Log.logInfo;
 /**
  * Created by koros on 1/22/16.
@@ -67,7 +63,7 @@ import static org.ei.opensrp.util.Log.logInfo;
 )
 public class BoreshaAfyaApplication extends DrishtiApplication {
     private static final String TAG = BoreshaAfyaApplication.class.getSimpleName();
-    private ReferralServiceRepository serviceRepository;
+    private ClientFollowupRepository serviceRepository;
     private int userType=0;//0=CHW and 1=Facility health care worker
     public  String currentUserID,team_uuid, phone_number,team_name,team_location_id,registration_id = "";
     public static String username,password;
@@ -116,63 +112,6 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
 
     }
 
-    public void setReferralService() {
-        commonRepository = context.commonrepository("indicator");
-        commonRepository1 = context.commonrepository("referral_service");
-        long count = commonRepository.count();
-        if (count == 0 ) {
-
-        //String to place our result in
-        final String myUrl = DRISHTI_BASE_PATH + OPENSRP_REFERRAL_SERVICES_URL_PATH;
-        final String result = null;
-
-        Response<String> stringResponse = Context.getInstance().getHttpAgent().fetchWithCredentials(myUrl, "sean", "Admin123");
-        ReferralServiceDataModel service;
-        Log.d(TAG, "referral service failure is " + stringResponse.isFailure());
-        JSONArray jsonArray = new JSONArray();
-        try {
-            jsonArray = new JSONArray(stringResponse.payload());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject explrObject = null;
-            try {
-                explrObject = jsonArray.getJSONObject(i);
-                Log.d(TAG, "string response " + explrObject.toString());
-
-                JSONArray array =  explrObject.getJSONArray("indicators");
-
-                for(int j = 0; j < array.length(); j++ ){
-                    Indicator indicator = new Gson().fromJson(array.get(j).toString(),Indicator.class);
-                    indicator.setReferralIndicatorId(explrObject.getString("serviceId"));
-                    Log.d(TAG, "string response indicators 2" + new Gson().toJson(indicator));
-
-                    ContentValues values = new IndicatorRepository().createValuesFor(indicator);
-                    android.util.Log.d(TAG, "values indicator = " + new Gson().toJson(values));
-                    commonRepository.customInsert(values);
-                }
-
-
-                service = new ReferralServiceDataModel(explrObject.getString("serviceId"),explrObject.getString("serviceName"),explrObject.getString("category"),explrObject.getString("isActive"));
-                if (service.getId().equals("")) {
-                    Log.d(TAG, "service table is empty");
-
-                } else {
-                    Log.d(TAG, "referral services downloaded name " + service.getServiceName());
-                    Log.d(TAG, "referral services downloaded " + service.toString());
-                    ContentValues values = new ReferralServiceRepository().createValuesFor(service);
-                    android.util.Log.d(TAG, "values services = " + new Gson().toJson(values));
-                    commonRepository1.customInsert(values);
-                    context.userService().saveHasReferralServiceInfo("true");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        setHasService(true);
-    }
-    }
 
     public void initializeReferralService() {
         try {
@@ -379,7 +318,7 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
         cleanUpSyncState();
 
         if (serviceRepository == null) {
-            serviceRepository = new ReferralServiceRepository();
+            serviceRepository = new ClientFollowupRepository();
         }
         initializeReferralService();
         initializeHasFacilities();

@@ -42,18 +42,6 @@ public class BackgroundUpdateService extends IntentService {
                 ((BoreshaAfyaApplication)getApplication()).getFacilities();
             }
 
-            if(((BoreshaAfyaApplication)getApplication()).isHasService()) {
-                Log.d(TAG,"has the list of service already");
-            }else if(intent.getBundleExtra("type").equals("referral_service_update")){
-                message="updating referral service";
-                ((BoreshaAfyaApplication)getApplication()).updateReferralService(message);
-            }else if(intent.getBundleExtra("type").equals("referral_service_delete")){
-                message="delete a referral service";
-                ((BoreshaAfyaApplication)getApplication()).deleteReferralService(message);
-            }  else{
-
-                ((BoreshaAfyaApplication)getApplication()).setReferralService();
-            }
 
             if(intent.getBundleExtra("type").equals("update")){
                 message = "updated referral status";

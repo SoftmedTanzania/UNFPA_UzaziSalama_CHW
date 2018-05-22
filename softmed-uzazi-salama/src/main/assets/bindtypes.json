@@ -139,9 +139,11 @@
         },
         {
           "name": "edd"
-        },{
+        },
+        {
           "name": "spouse_name"
-        },{
+        },
+        {
           "name": "map_cue"
         },
         {
@@ -163,23 +165,12 @@
           "name": "phone_number"
         },
         {
-          "name": "care_taker_name"
-        },
-        {
-          "name": "care_taker_name_phone_number"
-        },
-        {
-          "name": "care_taker_relationship"
-        },
-        {
-          "name": "date_of_birth"
-        },
-        {
           "name": "referral_date"
         },
         {
           "name": "is_valid"
-        },{
+        },
+        {
           "name": "service_provider_uiid"
         },
         {

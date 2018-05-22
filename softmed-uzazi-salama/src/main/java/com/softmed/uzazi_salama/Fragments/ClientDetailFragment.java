@@ -16,6 +16,8 @@ import com.softmed.uzazi_salama.R;
 import com.softmed.uzazi_salama.Repository.ClientFollowupPersonObject;
 import com.softmed.uzazi_salama.pageradapter.SecuredNativeSmartRegisterCursorAdapterFragment;
 import com.softmed.uzazi_salama.util.LargeDiagonalCutPathDrawable;
+
+import org.ei.opensrp.domain.ClientFollowup;
 import org.ei.opensrp.provider.SmartRegisterClientsProvider;
 import org.ei.opensrp.view.activity.SecuredNativeSmartRegisterActivity;
 
@@ -31,7 +33,7 @@ public class ClientDetailFragment extends SecuredNativeSmartRegisterCursorAdapte
      * represents.
      */
     public static final String CLIENT_FOLLOWUP = "item_id";
-    public ClientFollowupPersonObject clientFollowupPersonObject;
+    public ClientFollowup clientFollowupPersonObject;
     private static final String TAG = ClientDetailFragment.class.getSimpleName();
 
     private CommonRepository commonRepository;
@@ -43,7 +45,7 @@ public class ClientDetailFragment extends SecuredNativeSmartRegisterCursorAdapte
     public ClientDetailFragment() {
     }
 
-    public static ClientDetailFragment newInstance(ClientFollowupPersonObject followupPersonObject) {
+    public static ClientDetailFragment newInstance(ClientFollowup followupPersonObject) {
         ClientDetailFragment fragment = new ClientDetailFragment();
         Bundle args = new Bundle();
         args.putSerializable(CLIENT_FOLLOWUP, followupPersonObject);
@@ -55,7 +57,7 @@ public class ClientDetailFragment extends SecuredNativeSmartRegisterCursorAdapte
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            clientFollowupPersonObject = (ClientFollowupPersonObject) getArguments().getSerializable(CLIENT_FOLLOWUP);
+            clientFollowupPersonObject = (ClientFollowup) getArguments().getSerializable(CLIENT_FOLLOWUP);
         }
     }
 
@@ -127,7 +129,7 @@ public class ClientDetailFragment extends SecuredNativeSmartRegisterCursorAdapte
         }
     }
 
-    private void setDetails(ClientFollowupPersonObject clientFollowupPersonObject){
+    private void setDetails(ClientFollowup clientFollowupPersonObject){
 
         this.clientFollowupPersonObject = clientFollowupPersonObject;
 
@@ -149,12 +151,7 @@ public class ClientDetailFragment extends SecuredNativeSmartRegisterCursorAdapte
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if((clientFollowupPersonObject.getGender()).equalsIgnoreCase(getResources().getString(R.string.female))){
-            gender.setText(getResources().getString(R.string.female));
-        }
-        else     {
-            gender.setText(getResources().getString(R.string.male));
-        }
+
         age.setText(ageS + " years");
         name . setText(clientFollowupPersonObject.getFirst_name()+" "+clientFollowupPersonObject.getMiddle_name()+", "+ clientFollowupPersonObject.getSurname());
         contacts.setText(clientFollowupPersonObject.getPhone_number());
