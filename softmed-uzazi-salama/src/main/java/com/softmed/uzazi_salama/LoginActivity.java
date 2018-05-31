@@ -129,10 +129,16 @@ public class LoginActivity extends AppCompatActivity {
         initializeProgressDialog();
 
 
-        findViewById(com.softmed.uzazi_salama.R.id.credential_card).setBackground(new SmallDiagonalCutPathDrawable());
-        ImageView v = (ImageView)findViewById(com.softmed.uzazi_salama.R.id.background);
-        Glide.with(getApplicationContext()).load(com.softmed.uzazi_salama.R.drawable.clint_adair).into(v);
-        setLanguage();
+
+        try {
+            findViewById(com.softmed.uzazi_salama.R.id.credential_card).setBackground(new SmallDiagonalCutPathDrawable());
+            ImageView v = (ImageView) findViewById(com.softmed.uzazi_salama.R.id.background);
+            Glide.with(getApplicationContext()).load(R.drawable.unfpa_image).into((ImageView) findViewById(R.id.unfpa_logo));
+            Glide.with(getApplicationContext()).load(R.drawable.ttcih_image).into((ImageView) findViewById(R.id.ttcih_logo));
+            setLanguage();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
     @Override

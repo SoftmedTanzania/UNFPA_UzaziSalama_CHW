@@ -151,7 +151,7 @@ public class BoreshaAfyaApplication extends DrishtiApplication {
 
         clientReferralRepository = context.clientReferralRepository();
 
-        List<ClientReferral> clientReferrals = clientReferralRepository.RawCustomQueryForAdapter("select * FROM client_referral WHERE "+CommonRepository.ID_COLUMN+" = '"+id+"'");
+        List<ClientReferral> clientReferrals = clientReferralRepository.RawCustomQueryForAdapter("select * FROM anc_client_referral WHERE "+CommonRepository.ID_COLUMN+" = '"+id+"'");
 
         try {
             ClientReferral clientReferral = clientReferrals.get(0);

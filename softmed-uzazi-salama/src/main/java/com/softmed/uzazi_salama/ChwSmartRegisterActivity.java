@@ -198,7 +198,10 @@ public class ChwSmartRegisterActivity extends SecuredNativeSmartRegisterActivity
             dialogView.findViewById(R.id.referral_feedback_title).setVisibility(VISIBLE);
             TextView referralFeedback = (TextView) dialogView.findViewById(R.id.referral_feedback);
             referralFeedback.setVisibility(VISIBLE);
-            referralFeedback.setText(clientReferral.getOther_notes());
+
+            if(clientReferral.getReferral_status()==1) {
+                referralFeedback.setText("The Client has been enrolled to the clinic");
+            }
         }
 
 
